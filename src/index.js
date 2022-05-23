@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 
+import 'antd/dist/antd.css'
+
 import App from './App'
 
 
