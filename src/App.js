@@ -3,9 +3,7 @@ import AppLink from './microservices/link/AppLink'
 
 const App = () => {
   return (
-    <div>
-      <AppLink />
-    </div>
+    <AppLink />
   )
 }
 
