@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
+import css from './LinkList.module.css'
+
 import { Layout, Row } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
-import ApiLink from '../../../../api/link'
+import ApiLink from '../../api'
 
 import LinkItem from '../LinkItem/LinkItem'
 import LinkNone from '../LinkNone/LinkNone'
@@ -21,7 +23,7 @@ const LinkList = () => {
 
     if (isLoad) {
         return (
-            <Layout style={{ padding: 16, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Layout className={css.loadLoyout}>
                 <LinkSpin />
             </Layout>
         )
@@ -29,14 +31,14 @@ const LinkList = () => {
 
     if (isError) {
         return (
-            <Layout style={{ padding: 16, minHeight: '100vh' }}>
+            <Layout className={css.errorLayot}>
                 <LinkNone />
             </Layout>
         )
     }
 
     return (
-        <Layout style={{ padding: 16, minHeight: '100vh' }}>
+        <Layout className={css.listLayout}>
             <Row gutter={[16, 16]}>
                 {links.map(link => <LinkItem key={link._id} document={link} />)}
             </Row >

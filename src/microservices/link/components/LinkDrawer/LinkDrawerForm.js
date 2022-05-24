@@ -3,7 +3,7 @@ import { Button, Form, Input, message as antdMessage } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import css from './LinkDrawerForm.module.css'
 
-import ApiLink from '../../../../api/link'
+import ApiLink from '../../api'
 
 const success = (text) => {
     antdMessage.success(text)

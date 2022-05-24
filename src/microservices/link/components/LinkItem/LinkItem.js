@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Col, Tabs } from 'antd'
+import LinkItemButtons from './LinkItemButtons'
 const { TabPane } = Tabs
 
 
@@ -7,7 +8,7 @@ const LinkItem = ({ document }) => {
     const message = 'Неопределено'
     return (
         <Col span={12} xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
-            <Card title={document.title}>
+            <Card title={document.title} extra={<LinkItemButtons />}>
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="_id" key="_id">
                         {(document._id) ? document._id : message}

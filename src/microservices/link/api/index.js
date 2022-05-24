@@ -9,7 +9,7 @@ import {
     hideError,
     clearForm,
     showMessage
-} from "../store/reducers/link"
+} from "../reducers"
 
 class ApiLink {
     create(data) {
