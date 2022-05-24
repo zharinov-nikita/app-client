@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import css from './LinkList.module.css'
 
-import { Layout, Row } from 'antd'
+import { Layout, message, Row } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 
 import ApiLink from '../../api'
@@ -29,7 +29,7 @@ const LinkList = () => {
         )
     }
 
-    if (isError) {
+    if (isError || links.length === 0) {
         return (
             <Layout className={css.errorLayot}>
                 <LinkNone />

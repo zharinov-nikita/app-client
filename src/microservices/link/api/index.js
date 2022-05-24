@@ -8,7 +8,8 @@ import {
     hideDrawer,
     hideError,
     clearForm,
-    showMessage
+    showMessage,
+    deleteLink
 } from "../reducers"
 
 class ApiLink {
@@ -42,6 +43,18 @@ class ApiLink {
             }
         }
     }
+
+    delete(_id) {
+        return async function (dispatch) {
+            try {
+                await axios.delete(`http://localhost:3030/microservice/link/${_id}`)
+                dispatch(deleteLink(_id))
+            } catch (e) {
+
+            }
+        }
+    }
+
 
 }
 
