@@ -1,12 +1,4 @@
-.loadLoyout{
-    padding: 16px;
-    min-height: calc(100vh - 72px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.errorLayot{
+.loyout{
     padding: 16px;
     min-height: calc(100vh - 72px);
     display: flex;

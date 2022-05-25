@@ -8,6 +8,7 @@ import LinkDrawerForm from './LinkDrawerForm'
 const LinkDrawer = () => {
     const visible = useSelector(state => state.link.drawer.visible)
     const dispatch = useDispatch()
+
     return (
         <Drawer
             title="Новая ссылка"

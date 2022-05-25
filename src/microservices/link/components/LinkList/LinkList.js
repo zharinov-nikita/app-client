@@ -23,7 +23,7 @@ const LinkList = () => {
 
     if (isLoad) {
         return (
-            <Layout className={css.loadLoyout}>
+            <Layout className={css.loyout}>
                 <LinkSpin />
             </Layout>
         )
@@ -31,7 +31,7 @@ const LinkList = () => {
 
     if (isError || links.length === 0) {
         return (
-            <Layout className={css.errorLayot}>
+            <Layout className={css.loyout}>
                 <LinkNone />
             </Layout>
         )
