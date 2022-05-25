@@ -13,7 +13,7 @@ const LinkItemButtons = ({ _id, document }) => {
             <Button
                 size='small' children={<ProjectOutlined />}
                 onClick={() => {
-                    dispatch({ type: 'LINK_UPDATE_FORM', ...document, action: 'update', isShort: document.short })
+                    dispatch({ ...document, action: 'update', isShort: document.short, type: 'LINK_UPDATE_FORM' })
                 }}
 
             />

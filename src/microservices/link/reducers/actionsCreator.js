@@ -8,6 +8,7 @@ import {
     LINK_GET_LINKS,
     LINK_DELETE_LINK,
     LINK_CREATE_LINK,
+    LINK_UPDATE_LINK,
     LINK_CLEAR_FORM,
 } from './types'
 
@@ -30,6 +31,7 @@ export const hideError = () => ({ type: LINK_HIDE_ERROR })
 // => LINK
 export const getLinks = (payload) => ({ type: LINK_GET_LINKS, payload })
 export const createLink = (payload) => ({ type: LINK_CREATE_LINK, payload })
+export const updateLink = (payload) => ({ type: LINK_UPDATE_LINK, ...payload })
 export const deleteLink = (payload) => ({ type: LINK_DELETE_LINK, payload })
 // => LINK
 

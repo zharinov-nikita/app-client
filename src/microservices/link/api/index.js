@@ -8,7 +8,8 @@ import {
     hideDrawer,
     hideError,
     clearForm,
-    deleteLink
+    deleteLink,
+    updateLink
 } from "../reducers/actionsCreator"
 
 class ApiLink {
@@ -54,6 +55,18 @@ class ApiLink {
         }
     }
 
+    update(data) {
+        return async function (dispatch) {
+            try {
+                const req = await axios.patch('http://localhost:3030/microservice/link', data)
+                const res = await req.data
+                dispatch(updateLink(res))
+                dispatch(hideDrawer())
+            } catch (e) {
+                console.log(e)
+            }
+        }
+    }
 
 }
 

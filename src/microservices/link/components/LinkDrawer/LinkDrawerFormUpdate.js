@@ -3,6 +3,7 @@ import { Button, Form, Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import css from './LinkDrawerForm.module.css'
 
+import ApiLink from '../../api'
 
 const LinkDrawerFormUpdate = () => {
 
@@ -61,7 +62,9 @@ const LinkDrawerFormUpdate = () => {
                 <Input status={statusInputShort} placeholder='short' value={short} onChange={(e) => dispatch({ type: 'LINK_SET_FORM', short: e.target.value })} />
             </Form.Item>
             <Form.Item >
-                <Button type='primary' onClick={() => console.log(true)} children='Обновить' disabled={disabled} />
+                <Button type='primary' onClick={() => {
+                    dispatch(ApiLink.update(link))
+                }} children='Обновить' disabled={disabled} />
             </Form.Item>
         </Form >
     )
