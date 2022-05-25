@@ -6,14 +6,15 @@ import { useDispatch } from 'react-redux'
 
 import ApiLink from '../../api'
 
-const LinkItemButtons = ({ _id, document }) => {
+const LinkItemButtons = ({ document }) => {
+    const { _id } = document
     const dispatch = useDispatch()
     return (
         <div>
             <Button
                 size='small' children={<ProjectOutlined />}
                 onClick={() => {
-                    dispatch({ ...document, action: 'update', isShort: document.short, type: 'LINK_UPDATE_FORM' })
+                    dispatch({ type: 'LINK_UPDATE_FORM', ...document, action: 'update', isShort: document.short })
                 }}
 
             />
