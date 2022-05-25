@@ -1,41 +1,45 @@
 import {
     LINK_SHOW_DRAWER,
     LINK_HIDE_DRAWER,
+
     LINK_START_LOAD,
     LINK_FINISH_LOAD,
+
     LINK_SHOW_ERROR,
     LINK_HIDE_ERROR,
+
     LINK_GET_LINKS,
     LINK_DELETE_LINK,
     LINK_CREATE_LINK,
     LINK_UPDATE_LINK,
+
     LINK_CLEAR_FORM,
 } from './types'
 
 
 // => LOAD
-export const startLoad = () => ({ type: LINK_START_LOAD })
-export const finishLoad = () => ({ type: LINK_FINISH_LOAD })
+export const linkStartLoad = () => ({ type: LINK_START_LOAD })
+export const linkFinishLoad = () => ({ type: LINK_FINISH_LOAD })
 // => LOAD
 
 // => DRAWER
-export const showDrawer = () => ({ type: LINK_SHOW_DRAWER })
-export const hideDrawer = () => ({ type: LINK_HIDE_DRAWER })
+export const linkShowDrawer = () => ({ type: LINK_SHOW_DRAWER })
+export const linkHideDrawer = () => ({ type: LINK_HIDE_DRAWER })
 // => DRAWER
 
 // => ERROR
-export const showError = () => ({ type: LINK_SHOW_ERROR })
-export const hideError = () => ({ type: LINK_HIDE_ERROR })
+export const linkShowError = () => ({ type: LINK_SHOW_ERROR })
+export const linkHideError = () => ({ type: LINK_HIDE_ERROR })
 // => ERROR
 
 // => LINK
-export const getLinks = (payload) => ({ type: LINK_GET_LINKS, payload })
-export const createLink = (payload) => ({ type: LINK_CREATE_LINK, payload })
-export const updateLink = (payload) => ({ type: LINK_UPDATE_LINK, ...payload })
-export const deleteLink = (payload) => ({ type: LINK_DELETE_LINK, payload })
+export const linkGetLinks = (payload) => ({ type: LINK_GET_LINKS, payload })
+export const linkCreateLink = (payload) => ({ type: LINK_CREATE_LINK, payload })
+export const linkUpdateLink = (payload) => ({ type: LINK_UPDATE_LINK, ...payload })
+export const linkDeleteLink = (payload) => ({ type: LINK_DELETE_LINK, payload })
 // => LINK
 
 
 // => FORM
-export const clearForm = () => ({ type: LINK_CLEAR_FORM })
+export const linkClearForm = () => ({ type: LINK_CLEAR_FORM })
 // => FORM

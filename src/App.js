@@ -1,9 +1,13 @@
 import React from 'react'
+import AppMessage from './utils/AppMessage'
 import AppLink from './microservices/link/AppLink'
 
 const App = () => {
   return (
-    <AppLink />
+    <>
+      <AppMessage />
+      <AppLink />
+    </>
   )
 }
 

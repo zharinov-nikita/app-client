@@ -1,0 +1,4 @@
+// => MESSAGE
+export const APP_SHOW_MESSAGE = 'APP_SHOW_MESSAGE'
+export const APP_HIDE_MESSAGE = 'APP_HIDE_MESSAGE'
+// => MESSAGE

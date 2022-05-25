@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import css from './LinkList.module.css'
 
-import { Layout, message, Row } from 'antd'
+import { Layout, Row } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-
-import ApiLink from '../../api'
 
 import LinkItem from '../LinkItem/LinkItem'
 import LinkNone from '../LinkNone/LinkNone'
 import LinkSpin from '../LinkSpin/LinkSpin'
+
+import ApiLink from '../../api'
 
 
 const LinkList = () => {
@@ -20,6 +20,7 @@ const LinkList = () => {
     useEffect(() => {
         dispatch(ApiLink.get())
     }, [])
+
 
     if (isLoad) {
         return (
