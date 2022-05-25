@@ -10,18 +10,14 @@ const LinkDrawerFormUpdate = () => {
     const [disabled, setDisabled] = useState(true)
     const dispatch = useDispatch()
 
-    const links = useSelector(state => state.link.links)
-
-
-
     const { _id, offer, model, title, description, url, short, isShort } = useSelector(state => state.link.drawer.form)
+    const links = useSelector(state => state.link.links)
     const link = { _id, offer, model, title, description, url, short }
 
     const checkCyrilic = /[а-яА-ЯЁё]/.test(short)
     const checkEmpty = offer.length > 0 & model.length > 0 & title.length > 0 & description.length > 0 & url.length > 0 & short.length > 0
 
     let checkSame
-
 
     if (isShort && short !== isShort) {
         checkSame = links.find(link => short === link.short)
@@ -62,9 +58,7 @@ const LinkDrawerFormUpdate = () => {
                 <Input status={statusInputShort} placeholder='short' value={short} onChange={(e) => dispatch({ type: 'LINK_SET_FORM', short: e.target.value })} />
             </Form.Item>
             <Form.Item >
-                <Button type='primary' onClick={() => {
-                    dispatch(ApiLink.update(link))
-                }} children='Обновить' disabled={disabled} />
+                <Button type='primary' onClick={() => { dispatch(ApiLink.update(link)) }} children='Обновить' disabled={disabled} />
             </Form.Item>
         </Form >
     )
