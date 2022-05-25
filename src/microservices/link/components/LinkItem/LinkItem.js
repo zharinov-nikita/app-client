@@ -8,7 +8,7 @@ const LinkItem = ({ document }) => {
     const message = 'Неопределено'
     return (
         <Col span={12} xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
-            <Card title={document.title} extra={<LinkItemButtons _id={document._id} />}>
+            <Card title={document.title} extra={<LinkItemButtons _id={document._id} document={document} />}>
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="_id" key="_id">
                         {(document._id) ? document._id : message}

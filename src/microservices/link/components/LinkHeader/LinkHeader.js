@@ -12,7 +12,7 @@ const LinkHeader = () => {
             extra={<Button
                 type='primary'
                 children='Создать ссылку'
-                onClick={() => dispatch({ type: 'link/SHOW_DRAWER' })}
+                onClick={() => dispatch({ type: 'LINK_CREATE_FORM' })}
             />}
         />
     )

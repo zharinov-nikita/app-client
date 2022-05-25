@@ -8,9 +8,8 @@ import {
     hideDrawer,
     hideError,
     clearForm,
-    showMessage,
     deleteLink
-} from "../reducers"
+} from "../reducers/actionsCreator"
 
 class ApiLink {
     create(data) {
@@ -22,12 +21,12 @@ class ApiLink {
                 dispatch(hideDrawer())
                 dispatch(hideError())
                 dispatch(clearForm())
-                dispatch(showMessage('success'))
             } catch (e) {
-                dispatch(showMessage('error'))
+                console.log(e)
             }
         }
     }
+
 
     get() {
         return async function (dispatch) {

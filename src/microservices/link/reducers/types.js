@@ -1,0 +1,29 @@
+// => DRAWER
+export const LINK_SHOW_DRAWER = 'LINK_SHOW_DRAWER'
+export const LINK_HIDE_DRAWER = 'LINK_HIDE_DRAWER'
+// => DRAWER
+
+// => LOAD
+export const LINK_START_LOAD = 'LINK_START_LOAD'
+export const LINK_FINISH_LOAD = 'LINK_FINISH_LOAD'
+// => LOAD
+
+// => ERROR
+export const LINK_SHOW_ERROR = 'LINK_SHOW_ERROR'
+export const LINK_HIDE_ERROR = 'LINK_HIDE_ERROR'
+// => ERROR
+
+
+// => LINK
+export const LINK_GET_LINKS = 'LINK_GET_LINKS'
+export const LINK_DELETE_LINK = 'LINK_DELETE_LINK'
+export const LINK_CREATE_LINK = 'LINK_CREATE_LINK'
+// => LINK
+
+
+// => FORM
+export const LINK_SET_FORM = 'LINK_SET_FORM'
+export const LINK_CLEAR_FORM = 'LINK_CLEAR_FORM'
+export const LINK_CREATE_FORM = 'LINK_CREATE_FORM'
+export const LINK_UPDATE_FORM = 'LINK_UPDATE_FORM'
+// => FORM

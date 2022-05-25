@@ -13,7 +13,7 @@ const LinkDrawer = () => {
             title="Новая ссылка"
             placement="right"
             visible={visible}
-            onClose={() => dispatch({ type: 'link/HIDE_DRAWER' })}
+            onClose={() => dispatch({ type: 'LINK_HIDE_DRAWER' })}
         >
             <LinkDrawerForm />
         </Drawer>
