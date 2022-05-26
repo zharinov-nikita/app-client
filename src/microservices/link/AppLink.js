@@ -15,7 +15,7 @@ const AppLink = () => {
             <LinkList />
             <div style={{ position: 'fixed', zIndex: '10', right: '2em', bottom: '2em' }}>
                 <Button
-                    shape='circle' onClick={() => dispatch({ type: 'LINK_CREATE_FORM' })} icon={<AppstoreAddOutlined />} size='large' style={{ background: '#1890ff' }} />
+                    type="primary" shape='circle' onClick={() => dispatch({ type: 'LINK_CREATE_FORM' })} icon={<AppstoreAddOutlined />} size='large' style={{ background: '#1890ff' }} />
             </div>
         </>
     )
