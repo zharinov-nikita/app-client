@@ -11,6 +11,7 @@ import { appShowMessage } from '../../../../store/actions'
 const LinkItemButtons = ({ document }) => {
     const { _id, offer, model, title, description, url, short } = document
     const link = { _id, offer, model, title, description, url, short }
+    const copy = `http://localhost:3030/microservice/cc/${short}`
     const dispatch = useDispatch()
 
     return (
@@ -24,7 +25,7 @@ const LinkItemButtons = ({ document }) => {
             <Button
                 size='small' icon={<BugOutlined />}
                 onClick={() => {
-                    navigator.clipboard.writeText(`http://localhost:3030/microservice/cc/${short}`)
+                    navigator.clipboard.writeText(copy)
                     dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `${title} скопировано` }))
                 }}
             />

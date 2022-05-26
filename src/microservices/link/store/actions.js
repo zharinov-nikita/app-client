@@ -18,8 +18,6 @@ import {
     LINK_CLEAR_FORM,
     LINK_CREATE_FORM,
     LINK_UPDATE_FORM,
-
-    LINK_DISABLED_BUTTON,
 } from './types'
 
 export const linkShowDrawer = createAction(LINK_SHOW_DRAWER)

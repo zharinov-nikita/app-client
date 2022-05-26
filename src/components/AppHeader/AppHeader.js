@@ -1,18 +1,14 @@
 import React from 'react'
-import { Button, PageHeader, Typography } from 'antd'
-import { AppstoreOutlined } from '@ant-design/icons'
-const { Text } = Typography
+import css from './AppHeader.module.css'
+import { PageHeader } from 'antd'
+import AppHeaderLogo from './AppHeaderLogo'
+
 
 const AppHeader = () => {
     return (
-        <PageHeader title={
-            <div>
-                <AppstoreOutlined style={{ marginRight: 4, cursor: 'pointer' }} />
-                <Text children='Service' style={{ fontSize: 15, fontWeight: 700 }} />
-            </div>
-
-        }
-            style={{ padding: '8px 24px' }}
+        <PageHeader
+            className={css.header}
+            title={<AppHeaderLogo />}
         />
     )
 }

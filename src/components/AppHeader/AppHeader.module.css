@@ -1,0 +1,13 @@
+.header{
+    padding: 8px 24px;
+}
+
+.logo{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.icon{
+    margin-right: 4px;
+    cursor: pointer;
+}
