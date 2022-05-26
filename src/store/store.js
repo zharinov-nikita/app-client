@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import appReducer from './reducer'
+import linkReducer from '../microservices/link/store/reducer'
 
-import linkReducer from '../microservices/link/reducers'
-import appReducer from './reducers'
 
 const reducer = combineReducers({
     app: appReducer,

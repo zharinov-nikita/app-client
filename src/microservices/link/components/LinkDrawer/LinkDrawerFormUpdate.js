@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import css from './LinkDrawerForm.module.css'
 
-import { linkSetForm } from '../../reducers/actions'
+import { linkSetForm } from '../../store/actions'
 
 import ApiLink from '../../api'
 

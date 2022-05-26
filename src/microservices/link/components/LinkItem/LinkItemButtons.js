@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 
 
 import ApiLink from '../../api'
-import { linkUpdateForm } from '../../reducers/actions'
+import { linkUpdateForm } from '../../store/actions'
 
 const LinkItemButtons = ({ document }) => {
 

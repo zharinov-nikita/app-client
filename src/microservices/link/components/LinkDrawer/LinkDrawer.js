@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Drawer } from 'antd'
 import LinkDrawerForm from './LinkDrawerForm'
 
-import { linkHideDrawer } from '../../reducers/actions'
+import { linkHideDrawer } from '../../store/actions'
+
+
 
 const LinkDrawer = () => {
     const visible = useSelector(state => state.link.drawer.visible)

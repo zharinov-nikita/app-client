@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import css from './LinkDrawerForm.module.css'
 
 import ApiLink from '../../api'
-import { linkSetForm } from '../../reducers/actions'
+import { linkSetForm } from '../../store/actions'
 
 const LinkDrawerFormCreate = () => {
     const [disabled, setDisabled] = useState(true)

@@ -1,6 +1,4 @@
 import { createAction } from '@reduxjs/toolkit'
-
-
 import {
     LINK_SHOW_DRAWER,
     LINK_HIDE_DRAWER,

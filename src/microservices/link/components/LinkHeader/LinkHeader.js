@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Button, PageHeader } from 'antd'
-import { linkCreateForm } from '../../reducers/actions'
+import { linkCreateForm } from '../../store/actions'
 
 
 const LinkHeader = () => {
