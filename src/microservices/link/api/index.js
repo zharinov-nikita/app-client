@@ -26,7 +26,7 @@ class ApiLink {
                 dispatch(linkHideDrawer())
                 dispatch(linkHideError())
                 dispatch(linkClearForm())
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: 'Ссылка успешно создана' }))
+                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${res.title} успешно создана` }))
             } catch (e) {
                 dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
             }
@@ -46,12 +46,12 @@ class ApiLink {
             }
         }
     }
-    delete(_id) {
+    delete({ _id, title }) {
         return async function (dispatch) {
             try {
                 await axios.delete(`${ENDPOINT}/${_id}`)
                 dispatch(linkDeleteLink(_id))
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: 'Ссылка успешно удалена' }))
+                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${title} успешно удалена` }))
             } catch (e) {
                 dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
             }
@@ -64,7 +64,7 @@ class ApiLink {
                 const res = await req.data
                 dispatch(linkUpdateLink(res))
                 dispatch(linkHideDrawer())
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: 'Ссылка успешно обновлена' }))
+                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${res.title} успешно обновлена` }))
             } catch (e) {
                 dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
             }

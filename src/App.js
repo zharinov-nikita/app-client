@@ -1,11 +1,17 @@
 import React from 'react'
-import AppMessage from './utils/AppMessage'
+import AppHeader from './components/AppHeader/AppHeader'
+import useMessage from './hooks/useMessage'
 import AppLink from './microservices/link/AppLink'
 
+
+
+
 const App = () => {
+  useMessage()
+
   return (
     <>
-      <AppMessage />
+      <AppHeader />
       <AppLink />
     </>
   )

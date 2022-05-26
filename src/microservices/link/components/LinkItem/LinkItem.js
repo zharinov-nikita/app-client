@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card, Col, Tabs } from 'antd'
+import { Card, Col, Tabs, Typography, Tag } from 'antd'
 import LinkItemButtons from './LinkItemButtons'
 const { TabPane } = Tabs
-
+const { Text } = Typography
 
 const LinkItem = ({ document }) => {
     const { _id, offer, model, title, description, url, short } = document
@@ -10,28 +10,29 @@ const LinkItem = ({ document }) => {
 
     return (
         <Col span={12} xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
-            <Card title={title} extra={<LinkItemButtons document={document} />}>
+            <Card title={<Tag color={'blue'} children={title} />}
+                extra={<LinkItemButtons document={document} />}>
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="_id" key="_id">
-                        {(_id) ? _id : message}
+                        <Text children={(_id) ? _id : message} code />
                     </TabPane>
                     <TabPane tab="offer" key="offer">
-                        {(offer) ? offer : message}
+                        <Text children={(offer) ? offer : message} code />
                     </TabPane>
                     <TabPane tab="model" key="model">
-                        {(model) ? model : message}
+                        <Text children={(model) ? model : message} code />
                     </TabPane>
                     <TabPane tab="title" key="title">
-                        {(title) ? title : message}
+                        <Text children={(title) ? title : message} code />
                     </TabPane>
                     <TabPane tab="description" key="description">
-                        {(description) ? description : message}
+                        <Text children={(description) ? description : message} code />
                     </TabPane>
                     <TabPane tab="url" key="url">
-                        {(url) ? url : message}
+                        <Text children={(url) ? url : message} code />
                     </TabPane>
                     <TabPane tab="short" key="short">
-                        {(short) ? short : message}
+                        <Text children={(short) ? short : message} code />
                     </TabPane>
                 </Tabs>
             </Card>
