@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Form, Input } from 'antd'
+import { Button, Form, Input, Radio } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import css from './LinkDrawerForm.module.css'
 
@@ -31,14 +31,17 @@ const LinkDrawerFormCreate = () => {
         }
     }, [offer, model, title, description, url, short])
 
-
     return (
         <Form layout='vertical'>
             <Form.Item className={css.item} label='offer'>
                 <Input placeholder='offer' value={offer} onChange={(e) => dispatch(linkSetForm({ offer: e.target.value }))} />
             </Form.Item>
             <Form.Item className={css.item} label='model'>
-                <Input placeholder='model' value={model} onChange={(e) => dispatch(linkSetForm({ model: e.target.value }))} />
+                <Radio.Group onChange={(e) => dispatch(linkSetForm({ model: e.target.value }))} value={model} buttonStyle="solid" size="small">
+                    <Radio.Button value="CPA">CPA</Radio.Button>
+                    <Radio.Button value="Revshary">Revshary</Radio.Button>
+                    <Radio.Button value="Hybrid">Hybrid</Radio.Button>
+                </Radio.Group>
             </Form.Item>
             <Form.Item className={css.item} label='title' >
                 <Input placeholder='title' value={title} onChange={(e) => dispatch(linkSetForm({ title: e.target.value }))} />
