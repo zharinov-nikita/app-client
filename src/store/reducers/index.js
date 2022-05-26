@@ -1,7 +1,5 @@
-import {
-    APP_SHOW_MESSAGE,
-    APP_HIDE_MESSAGE,
-} from './types'
+import { createAction, createReducer } from '@reduxjs/toolkit'
+import { APP_SHOW_MESSAGE, APP_HIDE_MESSAGE } from './types'
 
 const defaultState = {
     message: {
@@ -11,21 +9,15 @@ const defaultState = {
     }
 }
 
-export const appReducer = (state = defaultState, action) => {
-    switch (action.type) {
+export const appShowMessage = createAction(APP_SHOW_MESSAGE)
+export const appHideMessage = createAction(APP_HIDE_MESSAGE)
 
-        //=> MESSAGE
-        case APP_SHOW_MESSAGE:
-            return { ...state, message: { ...state.message, isMessage: true, ...action.payload } }
-        case APP_HIDE_MESSAGE:
-            return { ...state, message: { ...defaultState.message } }
-        //=> MESSAGE
-
-
-        default:
-            return state
+export default createReducer(defaultState, {
+    [appShowMessage]: (state, action) => {
+        state.message = { isMessage: true, ...action.payload }
+    },
+    [appHideMessage]: (state, action) => {
+        state.message = defaultState.message
     }
-}
-
-
+})
 

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Drawer } from 'antd'
 import LinkDrawerForm from './LinkDrawerForm'
 
+import { linkHideDrawer } from '../../reducers/actions'
+
 const LinkDrawer = () => {
     const visible = useSelector(state => state.link.drawer.visible)
     const dispatch = useDispatch()
@@ -12,7 +14,7 @@ const LinkDrawer = () => {
             title="Новая ссылка"
             placement="right"
             visible={visible}
-            onClose={() => dispatch({ type: 'LINK_HIDE_DRAWER' })}
+            onClose={() => dispatch(linkHideDrawer())}
         >
             <LinkDrawerForm />
         </Drawer>

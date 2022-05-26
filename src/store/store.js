@@ -1,13 +1,13 @@
-import { applyMiddleware, createStore, combineReducers } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from 'redux-thunk'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import { linkReducer } from '../microservices/link/reducers'
-import { appReducer } from './reducers'
+import linkReducer from '../microservices/link/reducers'
+import appReducer from './reducers'
 
 const reducer = combineReducers({
     app: appReducer,
-    link: linkReducer,
+    link: linkReducer
 })
 
-export const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+export const store = configureStore({
+    reducer
+})

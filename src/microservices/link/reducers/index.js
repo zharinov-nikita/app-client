@@ -1,85 +1,81 @@
+import { createReducer } from '@reduxjs/toolkit'
+import initialState from './initialState'
 import {
-    LINK_SHOW_DRAWER,
-    LINK_HIDE_DRAWER,
+    linkShowDrawer,
+    linkHideDrawer,
 
-    LINK_START_LOAD,
-    LINK_FINISH_LOAD,
+    linkStartLoad,
+    linkFinishLoad,
 
-    LINK_SHOW_ERROR,
-    LINK_HIDE_ERROR,
+    linkShowError,
+    linkHideError,
 
-    LINK_GET_LINKS,
-    LINK_DELETE_LINK,
-    LINK_CREATE_LINK,
-    LINK_UPDATE_LINK,
+    linkGetLinks,
+    linkDeleteLink,
+    linkCreateLink,
+    linkUpdateLink,
 
-    LINK_SET_FORM,
-    LINK_CLEAR_FORM,
-    LINK_CREATE_FORM,
-    LINK_UPDATE_FORM,
-} from './types'
-
-const defaultState = {
-    isShort: '',
-    isLoad: false,
-    isError: false,
-    drawer: { visible: false, form: { action: 'create', offer: '', model: '', title: '', description: '', url: '', short: '' } },
-    links: []
-}
-
-export const linkReducer = (state = defaultState, action) => {
-    switch (action.type) {
-
-        // DRAWER
-        case LINK_SHOW_DRAWER:
-            return { ...state, drawer: { ...state.drawer, visible: !state.drawer.visible } }
-        case LINK_HIDE_DRAWER:
-            return { ...state, drawer: { ...state.drawer, visible: !state.drawer.visible } }
-        // DRAWER
+    linkSetForm,
+    linkClearForm,
+    linkCreateForm,
+    linkUpdateForm,
+} from './actions'
 
 
-        //=> LOAD
-        case LINK_START_LOAD:
-            return { ...state, isLoad: !state.isLoad }
-        case LINK_FINISH_LOAD:
-            return { ...state, isLoad: !state.isLoad }
-        //=> LOAD
 
 
-        //=> ERROR
-        case LINK_SHOW_ERROR:
-            return { ...state, isError: true }
-        case LINK_HIDE_ERROR:
-            return { ...state, isError: false }
-        //=> ERROR
 
 
-        //=> LINK
-        case LINK_GET_LINKS:
-            return { ...state, links: [...state.links, ...action.payload] }
-        case LINK_DELETE_LINK:
-            return { ...state, links: state.links.filter(link => link._id !== action.payload) }
-        case LINK_CREATE_LINK:
-            return { ...state, links: [...state.links, action.payload] }
-        case LINK_UPDATE_LINK: return { ...state, links: state.links.map(link => { if (link._id !== action._id) { return link } return { ...link, ...action } }) }
-        //=> LINK
+export default createReducer(initialState, {
+    [linkShowDrawer]: (state, action) => {
+        state.drawer.visible = true
+    },
+    [linkHideDrawer]: (state, action) => {
+        state.drawer.visible = false
+    },
 
 
-        // => FORM
-        case LINK_SET_FORM:
-            return { ...state, drawer: { ...state.drawer, form: { ...state.drawer.form, ...action } } }
-        case LINK_CLEAR_FORM:
-            return { ...state, drawer: { ...state.drawer, form: { ...defaultState.drawer.form } } }
-        case LINK_CREATE_FORM:
-            return { ...state, drawer: { ...state.drawer, form: { ...defaultState.drawer.form }, visible: !state.drawer.visible } }
-        case LINK_UPDATE_FORM:
-            return { ...state, drawer: { ...state.drawer, form: { ...state.drawer.form, ...action }, visible: !state.drawer.visible } }
-        // => FORM
-
-        default:
-            return state
-    }
-}
+    [linkStartLoad]: (state, action) => {
+        state.isLoad = true
+    },
+    [linkFinishLoad]: (state, action) => {
+        state.isLoad = false
+    },
 
 
+    [linkShowError]: (state, action) => {
+        state.isError = true
+    },
+    [linkHideError]: (state, action) => {
+        state.isError = false
+    },
+
+
+    [linkGetLinks]: (state, action) => {
+        state.links = [...action.payload]
+    },
+    [linkDeleteLink]: (state, action) => {
+        state.links = state.links.filter(link => link._id !== action.payload)
+    },
+    [linkCreateLink]: (state, action) => {
+        state.links = [...state.links, action.payload]
+    },
+    [linkUpdateLink]: (state, action) => {
+        state.links = state.links.map(link => { if (link._id !== action.payload._id) { return link } return { ...link, ...action.payload } })
+    },
+
+
+    [linkSetForm]: (state, action) => {
+        state.drawer.form = { ...state.drawer.form, ...action.payload }
+    },
+    [linkClearForm]: (state, action) => {
+        state.drawer.form = { ...initialState.drawer.form }
+    },
+    [linkCreateForm]: (state, action) => {
+        state.drawer = { form: { ...initialState.drawer.form }, visible: true }
+    },
+    [linkUpdateForm]: (state, action) => {
+        state.drawer = { form: action.payload, visible: true }
+    },
+})
 

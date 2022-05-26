@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Button, PageHeader } from 'antd'
+import { linkCreateForm } from '../../reducers/actions'
 
 
 const LinkHeader = () => {
@@ -13,7 +14,7 @@ const LinkHeader = () => {
             extra={<Button
                 type='primary'
                 children='Создать ссылку'
-                onClick={() => dispatch({ type: 'LINK_CREATE_FORM' })}
+                onClick={() => dispatch(linkCreateForm())}
             />}
         />
     )

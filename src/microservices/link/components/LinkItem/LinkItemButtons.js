@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 
 
 import ApiLink from '../../api'
+import { linkUpdateForm } from '../../reducers/actions'
 
 const LinkItemButtons = ({ document }) => {
 
@@ -17,12 +18,7 @@ const LinkItemButtons = ({ document }) => {
             <Button
                 size='small' children={<ProjectOutlined />}
                 onClick={() => {
-                    dispatch({
-                        type: 'LINK_UPDATE_FORM',
-                        ...link,
-                        action: 'update',
-                        isShort: short
-                    })
+                    dispatch(linkUpdateForm({ ...link, action: 'update', isShort: short }))
                 }}
 
             />

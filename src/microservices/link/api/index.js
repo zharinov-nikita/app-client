@@ -1,5 +1,5 @@
 import axios from "axios"
-import { appShowMessage } from "../../../store/reducers/actionsCreator"
+import { appShowMessage } from "../../../store/reducers"
 
 import {
     linkGetLinks,
@@ -12,7 +12,7 @@ import {
     linkClearForm,
     linkDeleteLink,
     linkUpdateLink,
-} from "../reducers/actionsCreator"
+} from "../reducers/actions"
 
 import { ENDPOINT } from "./endpoints"
 
