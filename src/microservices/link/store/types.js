@@ -3,16 +3,6 @@ export const LINK_SHOW_DRAWER = 'LINK_SHOW_DRAWER'
 export const LINK_HIDE_DRAWER = 'LINK_HIDE_DRAWER'
 // => DRAWER
 
-// => LOAD
-export const LINK_START_LOAD = 'LINK_START_LOAD'
-export const LINK_FINISH_LOAD = 'LINK_FINISH_LOAD'
-// => LOAD
-
-// => ERROR
-export const LINK_SHOW_ERROR = 'LINK_SHOW_ERROR'
-export const LINK_HIDE_ERROR = 'LINK_HIDE_ERROR'
-// => ERROR
-
 
 // => LINK
 export const LINK_GET_LINKS = 'LINK_GET_LINKS'

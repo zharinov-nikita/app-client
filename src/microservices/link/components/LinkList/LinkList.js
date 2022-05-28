@@ -12,8 +12,8 @@ import ApiLink from '../../api'
 
 
 const LinkList = () => {
-    const isLoad = useSelector(state => state.link.isLoad)
-    const isError = useSelector(state => state.link.isError)
+    const isLoad = useSelector(state => state.app.isLoad)
+    const isError = useSelector(state => state.app.isError)
     const links = useSelector(state => state.link.links)
     const dispatch = useDispatch()
 

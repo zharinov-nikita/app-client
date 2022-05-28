@@ -1,14 +1,18 @@
 import axios from "axios"
-import { appShowMessage } from "../../../store/actions"
+import {
+    appShowMessage,
+
+    appStartLoad,
+    appFinishLoad,
+
+    appShowError,
+    appHideError,
+} from "../../../store/actions"
 
 import {
     linkGetLinks,
-    linkShowError,
-    linkStartLoad,
-    linkFinishLoad,
     linkCreateLink,
     linkHideDrawer,
-    linkHideError,
     linkClearForm,
     linkDeleteLink,
     linkUpdateLink,
@@ -24,7 +28,7 @@ class ApiLink {
                 const res = await req.data
                 dispatch(linkCreateLink(res))
                 dispatch(linkHideDrawer())
-                dispatch(linkHideError())
+                dispatch(appHideError())
                 dispatch(linkClearForm())
                 dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${res.title} успешно создана` }))
             } catch (e) {
@@ -35,14 +39,14 @@ class ApiLink {
     get() {
         return async function (dispatch) {
             try {
-                dispatch(linkStartLoad())
+                dispatch(appStartLoad())
                 const req = await axios.get(ENDPOINT)
                 const res = await req.data
                 dispatch(linkGetLinks(res))
             } catch (e) {
-                dispatch(linkShowError())
+                dispatch(appShowError())
             } finally {
-                dispatch(linkFinishLoad())
+                dispatch(appFinishLoad())
             }
         }
     }

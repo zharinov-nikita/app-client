@@ -4,12 +4,6 @@ import {
     linkShowDrawer,
     linkHideDrawer,
 
-    linkStartLoad,
-    linkFinishLoad,
-
-    linkShowError,
-    linkHideError,
-
     linkGetLinks,
     linkDeleteLink,
     linkCreateLink,
@@ -33,23 +27,6 @@ export default createReducer(initialState, {
     [linkHideDrawer]: (state, action) => {
         state.drawer.visible = false
     },
-
-
-    [linkStartLoad]: (state, action) => {
-        state.isLoad = true
-    },
-    [linkFinishLoad]: (state, action) => {
-        state.isLoad = false
-    },
-
-
-    [linkShowError]: (state, action) => {
-        state.isError = true
-    },
-    [linkHideError]: (state, action) => {
-        state.isError = false
-    },
-
 
     [linkGetLinks]: (state, action) => {
         state.links = [...action.payload]

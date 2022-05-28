@@ -2,3 +2,14 @@
 export const APP_SHOW_MESSAGE = 'APP_SHOW_MESSAGE'
 export const APP_HIDE_MESSAGE = 'APP_HIDE_MESSAGE'
 // => MESSAGE
+
+
+// => LOAD
+export const APP_START_LOAD = 'APP_START_LOAD'
+export const APP_FINISH_LOAD = 'APP_FINISH_LOAD'
+// => LOAD
+
+// => LOAD
+export const APP_SHOW_ERROR = 'APP_SHOW_ERROR'
+export const APP_HIDE_ERROR = 'APP_HIDE_ERROR'
+// => LOAD
