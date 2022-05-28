@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import css from './BusinessList.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 
 import BusinessItem from '../BusinessItem/BusinessItem'
@@ -8,6 +9,7 @@ import AppLayoutLoad from '../../../../components/AppLayoutLoad/AppLayoutLoad'
 import AppLayoutError from '../../../../components/AppLayoutError/AppLayoutError'
 
 import ApiBusiness from '../../api'
+import { Layout, Row } from 'antd'
 
 const BusinessList = () => {
 
@@ -35,9 +37,12 @@ const BusinessList = () => {
 
 
     return (
-        <div>
-            {projects.map(project => <BusinessItem key={project._id} />)}
-        </div>
+        <Layout className={css.listLayout}>
+            <Row gutter={[16, 16]}>
+                {projects.map(project => <BusinessItem key={project._id} document={project} />)}
+            </Row >
+        </Layout>
+
     )
 }
 
