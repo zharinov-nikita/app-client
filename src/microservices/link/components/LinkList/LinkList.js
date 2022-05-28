@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import LinkItem from '../LinkItem/LinkItem'
 import LinkNone from '../LinkNone/LinkNone'
-import LinkSpin from '../LinkSpin/LinkSpin'
+
 
 import ApiLink from '../../api'
+import AppLayoutLoad from '../../../../components/AppLayoutLoad/AppLayoutLoad'
+import AppLayoutError from '../../../../components/AppLayoutError/AppLayoutError'
 
 
 const LinkList = () => {
@@ -24,17 +26,13 @@ const LinkList = () => {
 
     if (isLoad) {
         return (
-            <Layout className={css.loyout}>
-                <LinkSpin />
-            </Layout>
+            <AppLayoutLoad />
         )
     }
 
     if (isError || links.length === 0) {
         return (
-            <Layout className={css.loyout}>
-                <LinkNone />
-            </Layout>
+            <AppLayoutError component={<LinkNone />} />
         )
     }
 

@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import ApiBusiness from './api'
+import React from 'react'
+import BusinessList from './components/BusinessList/BusinessList'
 
 const AppBusiness = () => {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(ApiBusiness.get())
-    }, [])
-
     return (
-        <div>
-            Business
-        </div>
+        <>
+            <BusinessList />
+        </>
     )
 }
 

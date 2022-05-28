@@ -1,0 +1,7 @@
+.loyout {
+    padding: 16px;
+    min-height: calc(100vh - 58px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

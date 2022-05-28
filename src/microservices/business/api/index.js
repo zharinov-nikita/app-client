@@ -1,26 +1,30 @@
 import axios from "axios"
+import {
+    appStartLoad,
+    appFinishLoad,
+
+    appShowError,
+} from '../../../store/actions'
+
 
 import {
-    businessStartLoad,
-    businessFinishLoad,
-
     businessGetProjects
 } from "../store/actions"
 
 import { ENDPOINT } from "./endpoints"
 
 class ApiBusiness {
-    get() {
+    getAll() {
         return async function (dispatch) {
             try {
-                dispatch(businessStartLoad())
+                dispatch(appStartLoad())
                 const req = await axios.get(ENDPOINT)
                 const res = await req.data
                 dispatch(businessGetProjects(res))
             } catch (e) {
-                console.log(e)
+                dispatch(appShowError())
             } finally {
-                dispatch(businessFinishLoad())
+                dispatch(appFinishLoad())
             }
         }
     }
