@@ -1,1 +1,0 @@
-export const GET_ONE = 'http://localhost:3030/microservice/business/seo'
