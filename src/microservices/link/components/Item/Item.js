@@ -1,17 +1,18 @@
 import React from 'react'
+import Buttons from './Buttons/Buttons'
+
 import { Card, Col, Tabs, Typography, Tag } from 'antd'
-import LinkItemButtons from './LinkItemButtons'
 const { TabPane } = Tabs
 const { Text } = Typography
 
-const LinkItem = ({ document }) => {
+const Item = ({ document }) => {
     const { _id, offer, model, title, description, url, short } = document
     const message = 'Неопределено'
 
     return (
         <Col span={12} xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
             <Card title={<Tag color={'blue'} children={title} />}
-                extra={<LinkItemButtons document={document} />}>
+                extra={<Buttons document={document} />}>
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="_id" key="_id">
                         <Text children={(_id) ? _id : message} code />
@@ -40,4 +41,4 @@ const LinkItem = ({ document }) => {
     )
 }
 
-export default LinkItem
+export default Item

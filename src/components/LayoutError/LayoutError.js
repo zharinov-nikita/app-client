@@ -1,9 +1,10 @@
 
 import React from 'react'
-import css from './AppLayoutError.module.css'
+import css from './LayoutError.module.css'
+
 import { Layout } from 'antd'
 
-const AppLayoutError = ({ component }) => {
+const LayoutError = ({ component }) => {
     return (
         <Layout className={css.loyout}>
             {component}
@@ -11,4 +12,4 @@ const AppLayoutError = ({ component }) => {
     )
 }
 
-export default AppLayoutError
+export default LayoutError

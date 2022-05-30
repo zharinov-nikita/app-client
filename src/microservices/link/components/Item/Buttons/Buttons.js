@@ -1,14 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { linkUpdateForm } from '../../../store/actions'
+import { appShowMessage } from '../../../../../store/actions'
+import Api from '../../../api'
+
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
-import { useDispatch } from 'react-redux'
 
 
-import ApiLink from '../../api'
-import { linkUpdateForm } from '../../store/actions'
-import { appShowMessage } from '../../../../store/actions'
 
-const LinkItemButtons = ({ document }) => {
+const Buttons = ({ document }) => {
     const { _id, offer, model, title, description, url, short } = document
     const link = { _id, offer, model, title, description, url, short }
     const copy = `http://localhost:3030/microservice/cc/${short}`
@@ -35,10 +36,10 @@ const LinkItemButtons = ({ document }) => {
             <Button
                 size='small'
                 icon={<DeleteOutlined />}
-                onClick={() => dispatch(ApiLink.delete(link))}
+                onClick={() => dispatch(Api.delete(link))}
             />
         </div>
     )
 }
 
-export default LinkItemButtons
+export default Buttons

@@ -1,19 +1,20 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import AppHeader from './components/AppHeader/AppHeader'
 import useMessage from './hooks/useMessage'
+import Header from './components/Header/Header'
+import Link from './microservices/link/Link'
 
-import AppLink from './microservices/link/AppLink'
+
+
 
 
 const App = () => {
   useMessage()
-
   return (
     <>
-      <AppHeader />
+      <Header />
       <Routes>
-        <Route path='link' element={<AppLink />} />
+        <Route path='link' element={<Link />} />
       </Routes>
     </>
   )

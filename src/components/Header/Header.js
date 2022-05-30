@@ -1,20 +1,22 @@
 import React from 'react'
-import css from './AppHeader.module.css'
+import css from './Header.module.css'
+import Logo from './Logo/Logo'
+
 import { PageHeader } from 'antd'
-import AppHeaderLogo from './AppHeaderLogo'
 
 
 
 
-const AppHeader = () => {
+
+const Header = () => {
     return (
         <PageHeader
             onBack={() => window.history.back()}
             className={css.header}
-            title={<AppHeaderLogo />}
+            title={<Logo />}
             style={{ alignItems: 'center' }}
         />
     )
 }
 
-export default AppHeader
+export default Header

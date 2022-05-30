@@ -1,10 +1,11 @@
 import React from 'react'
-import css from './AppHeader.module.css'
+import css from '../Header.module.css'
+
 import { Typography } from 'antd'
 import { AppstoreOutlined } from '@ant-design/icons'
 const { Text } = Typography
 
-const AppHeaderLogo = () => {
+const Logo = () => {
     return (
         <div>
             <AppstoreOutlined className={css.icon} />
@@ -13,4 +14,4 @@ const AppHeaderLogo = () => {
     )
 }
 
-export default AppHeaderLogo
+export default Logo

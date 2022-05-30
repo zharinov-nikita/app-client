@@ -1,16 +1,16 @@
 import React from 'react'
-import css from './LinkAffix.module.css'
-
 import { useDispatch } from 'react-redux'
+import { linkCreateForm } from '../../store/actions'
+import css from './Affix.module.css'
+
 import { AppstoreAddOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import { linkCreateForm } from '../../store/actions'
 
 
 
-const LinkAffix = () => {
+
+const Affix = () => {
     const dispatch = useDispatch()
-
     return (
         <div className={css.affix}>
             <Button
@@ -25,4 +25,4 @@ const LinkAffix = () => {
     )
 }
 
-export default LinkAffix
+export default Affix

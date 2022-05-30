@@ -1,27 +1,28 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Drawer } from 'antd'
-import LinkDrawerForm from './LinkDrawerForm'
-
 import { linkHideDrawer } from '../../store/actions'
+import Form from './Form/Form'
+
+import { Drawer as AntdDrawer } from 'antd'
 
 
 
-const LinkDrawer = () => {
+
+const Drawer = () => {
     const { action, title } = useSelector(state => state.link.drawer.form)
     const visible = useSelector(state => state.link.drawer.visible)
     const dispatch = useDispatch()
 
     return (
-        <Drawer
+        <AntdDrawer
             title={(action === 'create') ? 'Новая ссылка' : title}
             placement="right"
             visible={visible}
             onClose={() => dispatch(linkHideDrawer())}
         >
-            <LinkDrawerForm />
-        </Drawer>
+            <Form />
+        </AntdDrawer>
     )
 }
 
-export default LinkDrawer
+export default Drawer

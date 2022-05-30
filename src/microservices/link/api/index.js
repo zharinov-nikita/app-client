@@ -18,9 +18,9 @@ import {
     linkUpdateLink,
 } from "../store/actions"
 
-import { ENDPOINT } from "./endpoints"
+import { ENDPOINT } from "./config"
 
-class ApiLink {
+class Api {
     create(data) {
         return async function (dispatch) {
             try {
@@ -76,4 +76,4 @@ class ApiLink {
     }
 }
 
-export default new ApiLink()
+export default new Api()
