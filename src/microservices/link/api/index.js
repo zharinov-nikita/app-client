@@ -1,16 +1,10 @@
 import axios from "axios"
 import {
     appShowMessage,
-
-    appStartLoad,
-    appFinishLoad,
-
-    appShowError,
     appHideError,
 } from "../../../store/actions"
 
 import {
-    linkGetLinks,
     linkCreateLink,
     linkHideDrawer,
     linkClearForm,
@@ -36,19 +30,9 @@ class Api {
             }
         }
     }
-    get() {
-        return async function (dispatch) {
-            try {
-                dispatch(appStartLoad())
-                const req = await axios.get(ENDPOINT)
-                const res = await req.data
-                dispatch(linkGetLinks(res))
-            } catch (e) {
-                dispatch(appShowError())
-            } finally {
-                dispatch(appFinishLoad())
-            }
-        }
+    async get() {
+        const request = await axios.get(ENDPOINT)
+        return await request.data
     }
     delete({ _id, title }) {
         return async function (dispatch) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Api from '../../api'
 import css from './List.module.css'
@@ -8,17 +8,19 @@ import AppLayoutError from '../../../../components/LayoutError/LayoutError'
 import { Layout, Row } from 'antd'
 import Item from '../Item/Item'
 import None from '../None/None'
+import useRequest from '../../../../hooks/useRequest'
+import { linkGetLinks } from '../../store/actions'
+
 
 
 const List = () => {
-    const isLoad = useSelector(state => state.app.isLoad)
-    const isError = useSelector(state => state.app.isError)
     const links = useSelector(state => state.link.links)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(Api.get())
-    }, [])
+    const { isLoad, isError } = useRequest(async () => {
+        const req = await Api.get()
+        dispatch(linkGetLinks(req))
+    })
 
 
     if (isLoad) {
