@@ -27,7 +27,7 @@ const Buttons = ({ document }) => {
                 size='small' icon={<BugOutlined />}
                 onClick={() => {
                     navigator.clipboard.writeText(copy)
-                    dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `${title} скопировано` }))
+                    dispatch(appShowMessage({ id: Date.now(), level: 'success', content: `${title} скопировано` }))
                 }}
             />
             <Button
