@@ -2,9 +2,10 @@ const initialState = {
     isLoad: false,
     isError: false,
     message: {
-        isMessage: false,
-        typeMessage: '',
-        contentMessage: ''
+        is: false,
+        id: 0,
+        level: '',
+        content: ''
     }
 }
 

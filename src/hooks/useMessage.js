@@ -4,11 +4,11 @@ import { message } from 'antd'
 
 
 export default function useMessage() {
-    const { isMessage, typeMessage, contentMessage } = useSelector(state => state.app.message)
+    const { is, id, level, content } = useSelector(state => state.app.message)
 
     useEffect(() => {
-        if (isMessage) {
-            message[typeMessage](contentMessage)
+        if (is) {
+            message[level](content)
         }
-    }, [isMessage, typeMessage, contentMessage])
+    }, [is, id, level, content])
 }

@@ -24,9 +24,9 @@ class Api {
                 dispatch(linkHideDrawer())
                 dispatch(appHideError())
                 dispatch(linkClearForm())
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${res.title} успешно создана` }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'success', content: `Ссылка ${res.title} успешно создана` }))
             } catch (e) {
-                dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
             }
         }
     }
@@ -39,9 +39,9 @@ class Api {
             try {
                 await axios.delete(`${ENDPOINT}/${_id}`)
                 dispatch(linkDeleteLink(_id))
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${title} успешно удалена` }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'success', content: `Ссылка ${title} успешно удалена` }))
             } catch (e) {
-                dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
             }
         }
     }
@@ -52,9 +52,9 @@ class Api {
                 const res = await req.data
                 dispatch(linkUpdateLink(res))
                 dispatch(linkHideDrawer())
-                dispatch(appShowMessage({ typeMessage: 'success', contentMessage: `Ссылка ${res.title} успешно обновлена` }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'success', content: `Ссылка ${res.title} успешно обновлена` }))
             } catch (e) {
-                dispatch(appShowMessage({ typeMessage: 'error', contentMessage: 'Ошибка на сервере' }))
+                dispatch(appShowMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
             }
         }
     }
