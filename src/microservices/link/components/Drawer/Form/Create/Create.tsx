@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Button, Input, Form as AntdForm } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
-import useReq from '../../../../hooks/useReq'
+import useApiRequests from '../../../../hooks/useApiRequests'
 import { linkSlice } from '../../../../store/link'
+import css from '../Form.module.css'
+import { Button, Input, Form as AntdForm } from 'antd'
 
 const Create: React.FC = () => {
     const [disabled, setDisabled] = useState(true)
-    const { createLink, updateLink } = useReq()
-    const { action, offer, model, title, description, url, short } = useAppSelector(state => state.link.form)
+    const { createLink, updateLink } = useApiRequests()
+    const { offer, model, title, description, url, short } = useAppSelector(state => state.link.form)
     const links = useAppSelector(state => state.link.links)
     const form = useAppSelector(state => state.link.form)
     const { setForm } = linkSlice.actions
@@ -38,33 +39,33 @@ const Create: React.FC = () => {
 
     return (
         <AntdForm layout='vertical'>
-            <AntdForm.Item label='offer' style={{ marginBottom: 8 }}>
+            <AntdForm.Item className={css.item} label='offer'>
                 <Input type="text" value={offer} onChange={onChangeOffer} />
             </AntdForm.Item >
-            <AntdForm.Item label='model' style={{ marginBottom: 8 }}>
+            <AntdForm.Item className={css.item} label='model' >
                 <Input type="text" value={model} onChange={onChangeModel} />
             </AntdForm.Item>
-            <AntdForm.Item label='title' style={{ marginBottom: 8 }}>
+            <AntdForm.Item className={css.item} label='title' >
                 <Input type="text" value={title} onChange={onChangeTitle} />
             </AntdForm.Item>
-            <AntdForm.Item label='description' style={{ marginBottom: 8 }}>
+            <AntdForm.Item className={css.item} label='description' >
                 <Input type="text" value={description} onChange={onChangeDescription} />
             </AntdForm.Item>
-            <AntdForm.Item label='url' style={{ marginBottom: 8 }}>
+            <AntdForm.Item className={css.item} label='url'>
                 <Input type="text" value={url} onChange={onChangeUrl} />
             </AntdForm.Item>
-            <AntdForm.Item label='short' style={{ marginBottom: 8 }} help={helpInputShort}>
+            <AntdForm.Item className={css.item} label='short' help={helpInputShort}>
                 <Input status={(helpInputShort) ? 'error' : ''} type="text" value={short} onChange={onChangeShort} />
             </AntdForm.Item>
-
-            <Button
-                onClick={() => createLink(form)}
-                disabled={disabled}
-                type='primary'
-            >
-                создать
-            </Button>
-        </AntdForm>
+            <AntdForm.Item>
+                <Button
+                    onClick={() => createLink(form)}
+                    disabled={disabled}
+                    type='primary'
+                    children='Создать'
+                />
+            </AntdForm.Item>
+        </AntdForm >
     )
 }
 

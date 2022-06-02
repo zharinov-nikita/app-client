@@ -3,7 +3,7 @@ import { Card, Col, Tabs, Typography, Tag } from 'antd'
 import Buttons from './Buttons/Buttons'
 
 import { useAppDispatch } from '../../../../../hooks/redux'
-import useReq from '../../../hooks/useReq'
+import useReq from '../../../hooks/useApiRequests'
 import { ILink } from '../../../interfaces/link'
 import { linkSlice } from '../../../store/link'
 

@@ -3,7 +3,7 @@ import React from 'react'
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
 import { ILink } from '../../../../interfaces/link'
-import useReq from '../../../../hooks/useReq'
+import useApiRequests from '../../../../hooks/useApiRequests'
 import { useAppDispatch } from '../../../../../../hooks/redux'
 import { linkSlice } from '../../../../store/link'
 import { appSlice } from '../../../../../../store/app'
@@ -17,7 +17,7 @@ const Buttons: React.FC<IDocumentProps> = ({ document }) => {
     const { _id, offer, model, title, description, url, short } = document
     const link = { _id, offer, model, title, description, url, short }
     const copy = `http://localhost:3030/microservice/cc/${short}`
-    const { deleteLink } = useReq()
+    const { deleteLink } = useApiRequests()
     const { showMessage } = appSlice.actions
     const { updateForm } = linkSlice.actions
     const dispatch = useAppDispatch()

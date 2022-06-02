@@ -1,10 +1,10 @@
+import Api from '../api'
 import { appSlice } from "../../../store/app"
 import { linkSlice } from "../store/link"
 import { useAppDispatch } from "../../../hooks/redux"
-import Api from '../api'
 import { useEffect } from "react"
 
-export default function useRequestLinks() {
+export default function useInitialDataLoading() {
     const { startLoad, finshLoad, showError } = appSlice.actions
     const { getLinks } = linkSlice.actions
     const dispatch = useAppDispatch()

@@ -2,7 +2,7 @@ import React from 'react'
 import css from './List.module.css'
 
 import { useAppSelector } from '../../../../hooks/redux'
-import useRequestLinks from '../../hooks/useRequestLinks'
+import useInitialDataLoading from '../../hooks/useInitialDataLoading'
 import Item from './Item/Item'
 
 import AppLayoutError from '../../../../components/LayotError/LayoutError'
@@ -15,7 +15,8 @@ const List: React.FC = () => {
 
     const { isError, isLoad } = useAppSelector(state => state.app)
     const { links } = useAppSelector(state => state.link)
-    useRequestLinks()
+
+    useInitialDataLoading()
 
 
     if (isLoad) {

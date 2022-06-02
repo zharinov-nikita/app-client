@@ -4,12 +4,12 @@ import { appSlice } from "../../../store/app"
 import { linkSlice } from "../store/link"
 import { useAppDispatch } from "../../../hooks/redux"
 
-export default function useReq() {
+export default function useApiRequests() {
     const { showMessage, hideError } = appSlice.actions
     const { createLink, updateLink, deleteLink } = linkSlice.actions
     const dispatch = useAppDispatch()
 
-
+    // CREATE
     async function asyncCreateLink(link: ILink) {
         try {
             const req = await Api.createLink(link)
@@ -20,8 +20,10 @@ export default function useReq() {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
         }
     }
+    // CREATE
 
 
+    // UPDATE
     async function asyncUpdateLink(link: ILink) {
         try {
             const req = await Api.updateLink(link)
@@ -31,7 +33,10 @@ export default function useReq() {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
         }
     }
+    // UPDATE
 
+
+    // DELETE
     async function asyncDeleteLink(link: ILink) {
         try {
             await Api.deleteLink(link)
@@ -41,6 +46,8 @@ export default function useReq() {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
         }
     }
+    // DELETE
+
 
 
     return {

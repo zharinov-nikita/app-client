@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IApp, IMessage } from "../interfaces/app"
+import { IApp, IMessage, IMessageLevel } from "../interfaces/app"
 
 
 
@@ -29,13 +29,13 @@ export const appSlice = createSlice({
         hideError(state: IApp) { state.isError = false },
         // ERROR
 
-        // MESSAGE
+        // COSTUM MESSAGE
         showMessage(state: IApp, action: { payload: IMessage }) {
             state.message = { is: true, ...action.payload }
         },
         hideMessage(state: IApp) {
             state.message = initialState.message
-        }
+        },
         // MESSAGE
     }
 })
