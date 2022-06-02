@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
 import useApiRequests from '../../../../hooks/useApiRequests'
 import { linkSlice } from '../../../../store/link'
 import css from '../Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
+import useUpdate from '../hooks/useUpdate'
 
 
 const Update: React.FC = () => {
-    const [disabled, setDisabled] = useState(true)
+    const { disabled, helpInputShort } = useUpdate()
     const { updateLink } = useApiRequests()
-    const { offer, model, title, description, url, short, isShort } = useAppSelector(state => state.link.form)
-    const links = useAppSelector(state => state.link.links)
-    const form = useAppSelector(state => state.link.form)
+    const { offer, model, title, description, url, short } = useAppSelector(state => state.link.form)
+    const link = useAppSelector(state => state.link.form)
     const { setForm } = linkSlice.actions
     const dispatch = useAppDispatch()
 
@@ -22,26 +22,6 @@ const Update: React.FC = () => {
     const onChangeUrl = (e: { target: HTMLInputElement }) => dispatch(setForm({ url: e.target.value }))
     const onChangeShort = (e: { target: HTMLInputElement }) => dispatch(setForm({ short: e.target.value }))
 
-
-    const checkCyrilic = /[а-яА-ЯЁё]/.test(short)
-    const checkEmpty = form.offer.length > 0 && form.model.length > 0 && form.title.length > 0 && form.description.length > 0 && form.url.length > 0 && form.short.length > 0
-
-    let checkSame: any
-
-    if (isShort && short !== isShort) {
-        checkSame = links.find(link => short === link.short)
-    }
-
-    const helpInputShort = (checkSame) && 'Уже существует' || (checkCyrilic) && 'Кириллица запрещена'
-
-
-    useEffect(() => {
-        if (checkEmpty && !checkCyrilic && !checkSame) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }, [offer, model, title, description, url, short])
 
     return (
         <AntdForm layout='vertical'>
@@ -63,9 +43,9 @@ const Update: React.FC = () => {
             <AntdForm.Item className={css.item} label='short' help={helpInputShort}>
                 <Input status={(helpInputShort) ? 'error' : ''} type="text" value={short} onChange={onChangeShort} />
             </AntdForm.Item>
-            <AntdForm.Item>
+            <AntdForm.Item className={css.item}>
                 <Button
-                    onClick={() => updateLink(form)}
+                    onClick={() => updateLink(link)}
                     disabled={disabled}
                     type='primary'
                     children='Обновить'

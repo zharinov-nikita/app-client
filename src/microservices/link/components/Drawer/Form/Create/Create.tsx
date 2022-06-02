@@ -1,65 +1,45 @@
-import React, { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
+import React from 'react'
+import useCreate from '../hooks/useCreate'
+import useInput from '../hooks/useInput'
 import useApiRequests from '../../../../hooks/useApiRequests'
-import { linkSlice } from '../../../../store/link'
 import css from '../Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
 
+
 const Create: React.FC = () => {
-    const [disabled, setDisabled] = useState(true)
-    const { createLink, updateLink } = useApiRequests()
-    const { offer, model, title, description, url, short } = useAppSelector(state => state.link.form)
-    const links = useAppSelector(state => state.link.links)
-    const form = useAppSelector(state => state.link.form)
-    const { setForm } = linkSlice.actions
-    const dispatch = useAppDispatch()
-
-    const onChangeOffer = (e: { target: HTMLInputElement }) => dispatch(setForm({ offer: e.target.value }))
-    const onChangeModel = (e: { target: HTMLInputElement }) => dispatch(setForm({ model: e.target.value }))
-    const onChangeTitle = (e: { target: HTMLInputElement }) => dispatch(setForm({ title: e.target.value }))
-    const onChangeDescription = (e: { target: HTMLInputElement }) => dispatch(setForm({ description: e.target.value }))
-    const onChangeUrl = (e: { target: HTMLInputElement }) => dispatch(setForm({ url: e.target.value }))
-    const onChangeShort = (e: { target: HTMLInputElement }) => dispatch(setForm({ short: e.target.value }))
+    const { link } = useInput()
+    const { offer, model, title, description, url, short } = useInput()
+    const { onChange } = useInput()
+    const { disabled, helpInputShort } = useCreate()
+    const { createLink } = useApiRequests()
 
 
-    const checkCyrilic = /[а-яА-ЯЁё]/.test(short)
-    const checkEmpty = form.offer.length > 0 && form.model.length > 0 && form.title.length > 0 && form.description.length > 0 && form.url.length > 0 && form.short.length > 0
-    const checkSame = links.find(link => short === link.short)
-
-    const helpInputShort = (checkSame) && 'Уже существует' || (checkCyrilic) && 'Кириллица запрещена'
 
 
-    useEffect(() => {
-        if (checkEmpty && !checkCyrilic && !checkSame) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }, [offer, model, title, description, url, short])
 
     return (
         <AntdForm layout='vertical'>
             <AntdForm.Item className={css.item} label='offer'>
-                <Input type="text" value={offer} onChange={onChangeOffer} />
+                <Input type="text" name='offer' value={offer} onChange={onChange} />
             </AntdForm.Item >
             <AntdForm.Item className={css.item} label='model' >
-                <Input type="text" value={model} onChange={onChangeModel} />
+                <Input type="text" name='model' value={model} onChange={onChange} />
             </AntdForm.Item>
             <AntdForm.Item className={css.item} label='title' >
-                <Input type="text" value={title} onChange={onChangeTitle} />
+                <Input type="text" name='title' value={title} onChange={onChange} />
             </AntdForm.Item>
             <AntdForm.Item className={css.item} label='description' >
-                <Input type="text" value={description} onChange={onChangeDescription} />
+                <Input type="text" name='description' value={description} onChange={onChange} />
             </AntdForm.Item>
             <AntdForm.Item className={css.item} label='url'>
-                <Input type="text" value={url} onChange={onChangeUrl} />
+                <Input type="text" name='url' value={url} onChange={onChange} />
             </AntdForm.Item>
             <AntdForm.Item className={css.item} label='short' help={helpInputShort}>
-                <Input status={(helpInputShort) ? 'error' : ''} type="text" value={short} onChange={onChangeShort} />
+                <Input status={(helpInputShort) ? 'error' : ''} type="text" name='short' value={short} onChange={onChange} />
             </AntdForm.Item>
-            <AntdForm.Item>
+            <AntdForm.Item className={css.item}>
                 <Button
-                    onClick={() => createLink(form)}
+                    onClick={() => createLink(link)}
                     disabled={disabled}
                     type='primary'
                     children='Создать'
