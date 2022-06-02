@@ -1,17 +1,24 @@
 import React from 'react'
 import useInput from './hooks/useInput'
 import useApiRequests from '../../../hooks/useApiRequests'
+import useValid from './hooks/useValid'
+import { useAppSelector } from '../../../../../hooks/redux'
+
 import css from './Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
-import useValid from './hooks/useValid'
+
 
 
 const Create: React.FC = () => {
+    const { action } = useAppSelector(state => state.link.form)
+    const { createLink, updateLink } = useApiRequests()
+
     const { link } = useInput()
     const { onChange } = useInput()
     const { offer, model, title, description, url, short } = useInput()
+
     const { disabled, helpInputShort } = useValid()
-    const { createLink } = useApiRequests()
+
 
     const inputs = [
         { name: 'offer', value: offer },
@@ -21,6 +28,9 @@ const Create: React.FC = () => {
         { name: 'url', value: url },
         { name: 'short', value: short, help: helpInputShort }
     ]
+
+    const onClickBtn = () => (action === 'create') ? createLink(link) : updateLink(link)
+    const childrenBtn = (action === 'create') ? 'создать' : 'обновить'
 
     return (
         <AntdForm layout='vertical'>
@@ -42,9 +52,9 @@ const Create: React.FC = () => {
             )}
             <AntdForm.Item className={css.item}>
                 <Button
-                    onClick={() => createLink(link)}
+                    onClick={onClickBtn}
                     disabled={disabled} type='primary'
-                    children='Создать'
+                    children={childrenBtn}
                 />
             </AntdForm.Item>
         </AntdForm >
