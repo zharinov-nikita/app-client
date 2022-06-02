@@ -1,10 +1,10 @@
-.affix{
-    position: fixed;
-    right: 2em;
-    bottom: 2em;
-    z-index: 10;
+.affix {
+    position: fixed !important;
+    right: 2em !important;
+    bottom: 2em !important;
+    z-index: 10 !important;
 }
 
-.button{
-    background: '#1890ff'
+.button {
+    background: '#1890ff' !important;
 }

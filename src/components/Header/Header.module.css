@@ -1,13 +1,13 @@
-.header{
-    padding: 8px 24px;
+.header {
+    padding: 8px 24px !important;
 }
 
-.logo{
-    font-size: 15px;
-    font-weight: 700;
+.logo {
+    font-size: 15px !important;
+    font-weight: 700 !important;
 }
 
-.icon{
-    margin-right: 4px;
-    cursor: pointer;
+.icon {
+    margin-right: 4px !important;
+    cursor: pointer !important;
 }
