@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
-import { ILink } from '../../../../models/link'
+import { ILink } from '../../../../interfaces/link'
 import useReq from '../../../../hooks/useReq'
 import { useAppDispatch } from '../../../../../../hooks/redux'
 import { linkSlice } from '../../../../store'

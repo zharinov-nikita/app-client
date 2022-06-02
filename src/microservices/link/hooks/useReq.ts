@@ -1,5 +1,5 @@
 import Api from '../api'
-import { ILink } from '../models/link'
+import { ILink } from '../interfaces/link'
 import { appSlice } from "../../../store/reducer"
 import { linkSlice } from "../store"
 import { useAppDispatch } from "../../../hooks/redux"

@@ -4,7 +4,7 @@ import Buttons from './Buttons/Buttons'
 
 import { useAppDispatch } from '../../../../../hooks/redux'
 import useReq from '../../../hooks/useReq'
-import { ILink } from '../../../models/link'
+import { ILink } from '../../../interfaces/link'
 import { linkSlice } from '../../../store'
 
 interface ILinkProps {

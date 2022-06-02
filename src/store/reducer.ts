@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IApp, IMessage } from "../models/app"
+import { IApp, IMessage } from "../interfaces/app"
 
 
 

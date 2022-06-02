@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IDrawer, IForm, ILink } from "../models/link"
+import { IDrawer, IForm, ILink } from "../interfaces/link"
 
 
 export interface ILinkState {

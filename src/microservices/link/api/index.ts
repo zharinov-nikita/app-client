@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ILink } from "../models/link"
+import { ILink } from "../interfaces/link"
 
 class Api {
     enpoint = 'http://localhost:3030/microservice/link'
