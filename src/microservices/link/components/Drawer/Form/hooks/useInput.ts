@@ -10,6 +10,8 @@ export default function useInput() {
     const onChange = (e: { target: HTMLInputElement }) => dispatch(setForm({ [e.target.name]: e.target.value }))
 
 
+
+
     return {
         onChange,
         offer,
