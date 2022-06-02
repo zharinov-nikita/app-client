@@ -1,5 +1,5 @@
-import { appSlice } from "../../../store/reducer"
-import { linkSlice } from "../store"
+import { appSlice } from "../../../store/app"
+import { linkSlice } from "../store/link"
 import { useAppDispatch } from "../../../hooks/redux"
 import Api from '../api'
 import { useEffect } from "react"

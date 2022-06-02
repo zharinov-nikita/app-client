@@ -5,8 +5,8 @@ import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '
 import { ILink } from '../../../../interfaces/link'
 import useReq from '../../../../hooks/useReq'
 import { useAppDispatch } from '../../../../../../hooks/redux'
-import { linkSlice } from '../../../../store'
-import { appSlice } from '../../../../../../store/reducer'
+import { linkSlice } from '../../../../store/link'
+import { appSlice } from '../../../../../../store/app'
 
 interface IDocumentProps {
     document: ILink

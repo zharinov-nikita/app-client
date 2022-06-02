@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Button, Input, Form as AntdForm } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
 import useReq from '../../../../hooks/useReq'
-import { linkSlice } from '../../../../store'
+import { linkSlice } from '../../../../store/link'
 
 const Create: React.FC = () => {
     const [disabled, setDisabled] = useState(true)

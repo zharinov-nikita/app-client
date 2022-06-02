@@ -1,7 +1,6 @@
 
 import React from 'react'
 import css from './LayoutError.module.css'
-
 import { Layout } from 'antd'
 
 interface IComponent {

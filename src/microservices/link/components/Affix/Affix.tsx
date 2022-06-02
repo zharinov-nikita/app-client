@@ -4,7 +4,7 @@ import css from './Affix.module.css'
 import { AppstoreAddOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import { useAppDispatch } from '../../../../hooks/redux'
-import { linkSlice } from '../../store'
+import { linkSlice } from '../../store/link'
 
 
 

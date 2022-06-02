@@ -1,7 +1,7 @@
 import Api from '../api'
 import { ILink } from '../interfaces/link'
-import { appSlice } from "../../../store/reducer"
-import { linkSlice } from "../store"
+import { appSlice } from "../../../store/app"
+import { linkSlice } from "../store/link"
 import { useAppDispatch } from "../../../hooks/redux"
 
 export default function useReq() {

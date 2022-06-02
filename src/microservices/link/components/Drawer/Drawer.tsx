@@ -1,7 +1,7 @@
 import { Drawer as AntdDrawer } from 'antd'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
-import { linkSlice } from '../../store';
+import { linkSlice } from '../../store/link';
 import Form from './Form/Form';
 
 const Drawer: React.FC = () => {
