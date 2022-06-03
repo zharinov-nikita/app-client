@@ -9,7 +9,7 @@ import { Button, Input, Form as AntdForm } from 'antd'
 
 
 
-const Create: React.FC = () => {
+const Form: React.FC = () => {
     const { action } = useAppSelector(state => state.link.form)
     const { createLink, updateLink } = useApiRequests()
 
@@ -25,8 +25,7 @@ const Create: React.FC = () => {
         { name: 'model', value: model },
         { name: 'title', value: title },
         { name: 'description', value: description },
-        { name: 'url', value: url },
-        { name: 'short', value: short, help: helpInputShort }
+        { name: 'url', value: url }
     ]
 
     const onClickBtn = () => (action === 'create') ? createLink(link) : updateLink(link)
@@ -35,22 +34,20 @@ const Create: React.FC = () => {
     return (
         <AntdForm layout='vertical'>
             {inputs.map(input =>
-                <AntdForm.Item
-                    className={css.item}
-                    label={input.name}
-                    help={input.help}
-                    key={input.name}
-                >
-                    <Input
-                        type="text"
-                        placeholder={input.name}
-                        status={(helpInputShort) ? 'error' : ''}
-                        name={input.name}
-                        value={input.value}
-                        onChange={onChange}
-                    />
+                <AntdForm.Item className={css.item} label={input.name} key={input.name} >
+                    <Input type="text" placeholder={input.name} name={input.name} value={input.value} onChange={onChange} />
                 </AntdForm.Item>
             )}
+
+            <AntdForm.Item className={css.item} label={'short'} help={helpInputShort} key={'short'} >
+                <Input type="text"
+                    placeholder={'short'}
+                    status={(helpInputShort) ? 'error' : ''}
+                    name={'short'}
+                    value={short}
+                    onChange={onChange} />
+            </AntdForm.Item>
+
             <AntdForm.Item className={css.item}>
                 <Button
                     onClick={onClickBtn}
@@ -62,4 +59,4 @@ const Create: React.FC = () => {
     )
 }
 
-export default Create
+export default Form

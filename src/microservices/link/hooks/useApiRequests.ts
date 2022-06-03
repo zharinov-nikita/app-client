@@ -18,6 +18,8 @@ export default function useApiRequests() {
             dispatch(hideError())
         } catch (e) {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
+            console.log(e)
+
         }
     }
     // CREATE
