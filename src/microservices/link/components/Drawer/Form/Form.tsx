@@ -39,6 +39,7 @@ const Create: React.FC = () => {
                     className={css.item}
                     label={input.name}
                     help={input.help}
+                    key={input.name}
                 >
                     <Input
                         type="text"
