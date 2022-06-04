@@ -6,3 +6,9 @@ export interface IProject {
     offer: string
     status: StatusType
 }
+
+export interface IInputs {
+    name: string
+    value: string
+    frequency: string
+}

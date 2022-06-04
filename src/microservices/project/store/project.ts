@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IProject } from "../interfaces/project"
+import { IInputs, IProject } from "../interfaces/project"
 
 
 export interface IProjectState {
     projects: IProject[]
+    inputs: IInputs[]
 }
 
 
 
 
 const initialState: IProjectState = {
-    projects: []
+    projects: [],
+    inputs: []
 }
 
 
@@ -36,7 +38,14 @@ export const projectSlice = createSlice({
                 return link
             })
         },
-        // PROJECT
+        // PROJECT\
+
+
+        // INPUTS
+        createInput(state: IProjectState, action: { payload: IInputs }) {
+            state.inputs = [...state.inputs, action.payload]
+        }
+        // INPUTS
     }
 })
 

@@ -5,6 +5,7 @@ import useMessage from './hooks/useMessage'
 
 import Link from './microservices/link/Link'
 import Project from './microservices/project/Project'
+import ProjectItem from './microservices/project/components/Item/Item'
 
 const App: React.FC = () => {
   useMessage()
@@ -14,6 +15,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path='/link' element={<Link />} />
         <Route path='/project' element={<Project />} />
+        <Route path='/project/:_id' element={<ProjectItem />} />
       </Routes>
     </>
   )
