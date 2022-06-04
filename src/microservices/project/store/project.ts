@@ -14,9 +14,9 @@ const initialState: IProjectState = {
     projects: [],
     seo: {
         mainKey: { name: 'mainKey', value: 'Главный ключ - 1', frequency: '2200' },
-        highKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }],
-        midKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }],
-        lowKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }]
+        highKey: [{ name: 'highKey', value: 'Высокочастотный ключ - 1', frequency: '2200' }],
+        midKey: [{ name: 'midKey', value: 'Среднечастотный ключ - 1', frequency: '2200' }],
+        lowKey: [{ name: 'lowKey', value: 'Низкочастотный ключ - 1', frequency: '2200' }]
     }
 }
 
@@ -48,7 +48,13 @@ export const projectSlice = createSlice({
         // KEY
         createMainKey(state: IProjectState, action: { payload: IKey }) {
             state.seo.mainKey = action.payload
-        }
+        },
+        setMainKey(state: IProjectState, action: { payload: string }) {
+            state.seo.mainKey = { ...state.seo.mainKey, value: action.payload }
+        },
+        createHighKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.highKey = [...state.seo.highKey, action.payload]
+        },
         // KEY
     }
 })

@@ -3,12 +3,11 @@ import css from './Item.module.css'
 import { Card, Col, Layout, Row } from 'antd'
 
 import { Tabs } from 'antd'
+
 import Info from './Info/Info'
 import Main from './Key/Main'
 
 const { TabPane } = Tabs
-
-
 
 
 
@@ -24,15 +23,6 @@ const Item: React.FC = () => {
                     <Card title='Рабочий процесс'>
                         <Tabs >
                             <TabPane tab='Главный' key={1}>
-                                <Main />
-                            </TabPane>
-                            <TabPane tab='Высокочастототный' key={2}>
-                                <Main />
-                            </TabPane>
-                            <TabPane tab='Среднечастотный' key={3}>
-                                <Main />
-                            </TabPane>
-                            <TabPane tab='Низкочастотный' key={4}>
                                 <Main />
                             </TabPane>
                         </Tabs>

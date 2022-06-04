@@ -5,15 +5,16 @@ import { projectSlice } from '../../../store/project'
 
 
 const Сreate: React.FC = () => {
+    const { createMainKey, setMainKey } = projectSlice.actions
+    const { value, frequency } = useAppSelector(state => state.project.seo.mainKey)
     const dispatch = useAppDispatch()
-    const { createMainKey } = projectSlice.actions
-    const { name, value, frequency } = useAppSelector(state => state.project.seo.mainKey)
+
 
     return (
         <Form autoComplete="off">
-            <Form.Item style={{ marginBottom: 8 }} key={Date.now()}>
+            <Form.Item style={{ marginBottom: 8 }}>
                 <Input.Group compact>
-                    <Input type='text' name={name} value={value} placeholder={'Название ключа'} style={{ width: 'calc(100% - 120px)' }} />
+                    <Input type="text" value={value} onChange={(e) => dispatch(setMainKey(e.target.value))} style={{ width: 'calc(100% - 120px)' }} />
                     <Input type='number' style={{ width: 120 }} placeholder={'Частотность'} value={frequency} />
                 </Input.Group>
             </Form.Item>
