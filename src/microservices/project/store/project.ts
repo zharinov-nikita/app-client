@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { ILink } from "../../link/interfaces/link"
 import { IKey, IProject, ISeo } from "../interfaces/project"
 
 
@@ -13,10 +14,8 @@ export interface IProjectState {
 const initialState: IProjectState = {
     projects: [],
     seo: {
-        mainKey: { name: 'mainKey', value: 'Главный ключ - 1', frequency: '2200' },
-        highKey: [{ name: 'highKey', value: 'Высокочастотный ключ - 1', frequency: '2200' }],
-        midKey: [{ name: 'midKey', value: 'Среднечастотный ключ - 1', frequency: '2200' }],
-        lowKey: [{ name: 'lowKey', value: 'Низкочастотный ключ - 1', frequency: '2200' }]
+        main: { id: 1, value: '', frequency: 0 },
+        extra: [{ id: 1, value: '', frequency: 0 }]
     }
 }
 
@@ -46,15 +45,23 @@ export const projectSlice = createSlice({
         // PROJECT\
 
         // KEY
-        createMainKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.mainKey = action.payload
+        setMainKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.main = { ...state.seo.main, ...action.payload }
         },
-        setMainKey(state: IProjectState, action: { payload: string }) {
-            state.seo.mainKey = { ...state.seo.mainKey, value: action.payload }
+        addExtraKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.extra = [...state.seo.extra, action.payload]
         },
-        createHighKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.highKey = [...state.seo.highKey, action.payload]
+        deleteExtraKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.extra = state.seo.extra.filter(key => key.id !== action.payload.id)
         },
+        setExtraKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.extra = state.seo.extra.map(key => {
+                if (key.id === action.payload.id) {
+                    return { ...key, ...action.payload }
+                }
+                return key
+            })
+        }
         // KEY
     }
 })

@@ -8,15 +8,12 @@ export interface IProject {
 }
 
 export interface IKey {
-    name: string
+    id: number
     value: string
-    frequency: string
+    frequency: number
 }
 
-
 export interface ISeo {
-    mainKey: IKey
-    highKey: IKey[]
-    midKey: IKey[]
-    lowKey: IKey[]
+    main: IKey
+    extra: IKey[]
 }
