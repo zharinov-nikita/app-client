@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IInputs, IProject } from "../interfaces/project"
+import { IKey, IProject, ISeo } from "../interfaces/project"
 
 
 export interface IProjectState {
     projects: IProject[]
-    inputs: IInputs[]
+    seo: ISeo
 }
 
 
@@ -12,7 +12,12 @@ export interface IProjectState {
 
 const initialState: IProjectState = {
     projects: [],
-    inputs: []
+    seo: {
+        mainKey: { name: 'mainKey', value: 'Главный ключ - 1', frequency: '2200' },
+        highKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }],
+        midKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }],
+        lowKey: [{ name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }, { name: '', value: '', frequency: '' }]
+    }
 }
 
 
@@ -40,12 +45,11 @@ export const projectSlice = createSlice({
         },
         // PROJECT\
 
-
-        // INPUTS
-        createInput(state: IProjectState, action: { payload: IInputs }) {
-            state.inputs = [...state.inputs, action.payload]
+        // KEY
+        createMainKey(state: IProjectState, action: { payload: IKey }) {
+            state.seo.mainKey = action.payload
         }
-        // INPUTS
+        // KEY
     }
 })
 
