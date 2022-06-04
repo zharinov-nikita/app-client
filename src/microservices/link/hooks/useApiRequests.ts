@@ -42,8 +42,10 @@ export default function useApiRequests() {
     async function asyncDeleteLink(link: ILink) {
         try {
             await Api.deleteLink(link)
-            dispatch(deleteLink(link._id))
-            dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно удалена` }))
+            if (link?._id) {
+                dispatch(deleteLink(link._id))
+                dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно удалена` }))
+            }
         } catch (e) {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
         }
