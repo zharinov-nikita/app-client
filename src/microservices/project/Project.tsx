@@ -1,10 +1,10 @@
 import React from 'react'
-import List from './components/List/List'
+import Main from './components/Main/Main'
 
 const Project: React.FC = () => {
     return (
         <>
-            <List />
+            <Main />
         </>
     )
 }
