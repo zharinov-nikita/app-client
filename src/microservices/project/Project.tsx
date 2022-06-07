@@ -12,7 +12,7 @@ const Project: React.FC = () => {
                 <div key={id}>
                     <h4>{name}</h4>
                     <h4>{status}</h4>
-                    {tasks.map(({ id, name, date, completed }) =>
+                    {tasks.map(({ projectId, id, name, date, completed }) =>
                         <ul key={id}>
                             <li>
                                 <p>{name}</p>
@@ -20,7 +20,7 @@ const Project: React.FC = () => {
                                 <input
                                     type="checkbox"
                                     checked={completed}
-                                    onChange={() => dispatch(completedTask({ id, name, date, completed }))}
+                                    onChange={() => dispatch(completedTask({ projectId, id, name, date, completed }))}
                                 />
                             </li>
                         </ul>
