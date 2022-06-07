@@ -29,7 +29,7 @@ const initialState: InitialStateType = {
             status: 'запланировано',
             tasks: [
                 { projectId: 0, id: 0, name: 'Главный ключ', date: '2022-06-15', completed: false },
-                { projectId: 0, id: 1, name: 'Дополнительный ключ - 1', date: '2022-06-15', completed: false },
+                { projectId: 0, id: 1, name: 'Дополнительный ключ - 1', date: '2022-06-16', completed: false },
             ]
         },
         {
@@ -37,8 +37,8 @@ const initialState: InitialStateType = {
             name: 'контент',
             status: 'запланировано',
             tasks: [
-                { projectId: 1, id: 0, name: 'Статья #1', date: '2022-06-15', completed: false },
-                { projectId: 1, id: 1, name: 'Статья #2', date: '2022-06-15', completed: false },
+                { projectId: 1, id: 0, name: 'Статья #1', date: '2022-06-17', completed: false },
+                { projectId: 1, id: 1, name: 'Статья #2', date: '2022-06-18', completed: false },
             ]
         },
         {
@@ -46,8 +46,8 @@ const initialState: InitialStateType = {
             name: 'настройки',
             status: 'запланировано',
             tasks: [
-                { projectId: 2, id: 0, name: 'Доменное имя', date: '2022-06-15', completed: false },
-                { projectId: 2, id: 1, name: 'Ssl сертификат', date: '2022-06-15', completed: false },
+                { projectId: 2, id: 0, name: 'Доменное имя', date: '2022-06-19', completed: false },
+                { projectId: 2, id: 1, name: 'Ssl сертификат', date: '2022-06-20', completed: false },
             ]
         }
     ]

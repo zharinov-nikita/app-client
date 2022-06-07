@@ -17,32 +17,36 @@ const Project: React.FC = () => {
     const { completedTask, statusProject, dateTask } = projectSlice.actions
     const projects = useAppSelector(state => state.project.projects)
 
+    const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+        console.log(date)
+    };
 
     return (
         <>
             {projects.map(({ id, name, status, tasks }) =>
                 <div key={id}>
-                    <h4>{name}</h4>
-                    <Select defaultValue={status} style={{ width: 120 }} onChange={(value: string) => dispatch(statusProject({ id, name, tasks, status: value }))}>
-                        <Option value="запланировано">запланировано</Option>
-                        <Option value="работа">работа</Option>
-                        <Option value="завершено">завершено</Option>
-                    </Select>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <h4>{name}</h4>
+                        <Select defaultValue={status} style={{ width: 180 }} onChange={(value: string) => dispatch(statusProject({ id, name, tasks, status: value }))}>
+                            <Option value="запланировано">запланировано</Option>
+                            <Option value="работа">работа</Option>
+                            <Option value="завершено">завершено</Option>
+                        </Select>
+                    </div>
                     {tasks.map(({ projectId, id, name, date, completed }) =>
                         <ul key={id}>
-                            <li>
-                                <span>{name}</span>
-                                <input
-                                    type="date"
-                                    value={date}
-                                    onChange={(e: { target: HTMLInputElement }) => dispatch(dateTask({ projectId, id, name, completed, date: e.target.value }))}
-                                />
-                                <mark>{date}</mark>
-                                <input
-                                    type="checkbox"
-                                    checked={completed}
-                                    onChange={() => dispatch(completedTask({ projectId, id, name, date, completed }))}
-                                />
+                            <li style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                <div>
+                                    <input
+                                        type="checkbox"
+                                        checked={completed}
+                                        onChange={() => dispatch(completedTask({ projectId, id, name, date, completed }))}
+                                        style={{ marginRight: 4 }}
+                                    />
+                                    <span style={{ fontWeight: 700 }}>{name}</span>
+                                </div>
+                                <input type="date" onChange={(e: { target: HTMLInputElement }) => dispatch(dateTask({ projectId, id, name, completed, date: e.target.value }))} value={date} />
+
                             </li>
                         </ul>
                     )}
