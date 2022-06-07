@@ -1,69 +1,56 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { ILink } from "../../link/interfaces/link"
-import { IKey, IProject, ISeo } from "../interfaces/project"
 
 
-export interface IProjectState {
-    projects: IProject[]
-    seo: ISeo
+type TaskType = {
+    id: number | string
+    name: string
+    date: string
+    completed: boolean
+}
+
+type ProjectType = {
+    id: number | string
+    name: string
+    status: string
+    tasks: TaskType[]
+}
+
+type InitialStateType = {
+    projects: ProjectType[]
 }
 
 
-
-
-const initialState: IProjectState = {
-    projects: [],
-    seo: {
-        main: { id: 1, value: '', frequency: 0 },
-        extra: [{ id: 1, value: '', frequency: 0 }]
-    }
+const initialState: InitialStateType = {
+    projects: [
+        {
+            id: 0,
+            name: 'сео',
+            status: 'запланировано',
+            tasks: [
+                { id: '0 - сео', name: 'Главный ключ', date: '24.08.2000', completed: false },
+                { id: '1 - сео', name: 'Дополнительный ключ - 1', date: '24.08.2000', completed: false },
+                { id: '2 - сео', name: 'Дополнительный ключ - 2', date: '24.08.2000', completed: false },
+                { id: '3 - сео', name: 'Дополнительный ключ - 3', date: '24.08.2000', completed: false },
+            ]
+        }
+    ]
 }
 
 
 export const projectSlice = createSlice({
-    name: 'project',
     initialState,
+    name: 'project',
     reducers: {
-        // PROJECT
-        getProjects(state: IProjectState, action: { payload: IProject[] }) {
-            state.projects = [...action.payload]
-        },
-        deleteProject(state: IProjectState, action: { payload: string }) {
-            state.projects = state.projects.filter(link => link._id !== action.payload)
-        },
-        createProject(state: IProjectState, action: { payload: IProject }) {
-            state.projects = [...state.projects, action.payload]
-        },
-        updateProject(state: IProjectState, action: { payload: IProject }) {
-            state.projects = state.projects.map(link => {
-                if (link._id === action.payload._id) {
-                    return action.payload
+        completedTask(state: InitialStateType, action: { payload: TaskType }) {
+            state.projects[0].tasks = state.projects[0].tasks.map(task => {
+                if (task.id === action.payload.id) {
+                    return { ...task, completed: !task.completed }
                 }
-                return link
-            })
-        },
-        // PROJECT\
-
-        // KEY
-        setMainKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.main = { ...state.seo.main, ...action.payload }
-        },
-        addExtraKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.extra = [...state.seo.extra, action.payload]
-        },
-        deleteExtraKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.extra = state.seo.extra.filter(key => key.id !== action.payload.id)
-        },
-        setExtraKey(state: IProjectState, action: { payload: IKey }) {
-            state.seo.extra = state.seo.extra.map(key => {
-                if (key.id === action.payload.id) {
-                    return { ...key, ...action.payload }
-                }
-                return key
+                return task
             })
         }
-        // KEY
     }
+
 })
 
 
