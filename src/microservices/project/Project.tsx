@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { projectSlice } from './store/project'
+import { projectSlice, ProjectType } from './store/project'
+
+import type { DatePickerProps } from 'antd';
+import { DatePicker, Space } from 'antd';
 
 import { Select } from 'antd';
 
@@ -11,8 +14,9 @@ const { Option } = Select;
 
 const Project: React.FC = () => {
     const dispatch = useAppDispatch()
-    const { completedTask, statusProject } = projectSlice.actions
+    const { completedTask, statusProject, dateTask } = projectSlice.actions
     const projects = useAppSelector(state => state.project.projects)
+
 
     return (
         <>
@@ -28,6 +32,11 @@ const Project: React.FC = () => {
                         <ul key={id}>
                             <li>
                                 <span>{name}</span>
+                                <input
+                                    type="date"
+                                    value={date}
+                                    onChange={(e: { target: HTMLInputElement }) => dispatch(dateTask({ projectId, id, name, completed, date: e.target.value }))}
+                                />
                                 <mark>{date}</mark>
                                 <input
                                     type="checkbox"
