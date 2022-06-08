@@ -28,7 +28,7 @@ const initialState: InitialStateType = {
         {
             _id: 0,
             name: 'сео',
-            status: 'запланировано',
+            status: 'работа',
             tasks: [
                 { _id: 1, processId: 0, name: 'Главный ключ', date: '2022-08-02', completed: false },
                 { _id: 2, processId: 0, name: 'Дополнительный ключ', date: '2022-08-02', completed: false }
@@ -39,10 +39,39 @@ const initialState: InitialStateType = {
             name: 'контент',
             status: 'запланировано',
             tasks: [
-                { _id: 1, processId: 1, name: 'Главный ключ', date: '2022-08-02', completed: false },
-                { _id: 2, processId: 1, name: 'Дополнительный ключ', date: '2022-08-02', completed: false }
+                { _id: 1, processId: 1, name: 'Статья #1', date: '2022-08-02', completed: false },
+                { _id: 2, processId: 1, name: 'Статья #2', date: '2022-08-02', completed: false }
             ]
-        }
+        },
+        {
+            _id: 2,
+            name: 'настройки',
+            status: 'запланировано',
+            tasks: [
+                { _id: 1, processId: 2, name: 'Доменное имя', date: '2022-08-02', completed: false },
+                { _id: 2, processId: 2, name: 'SSL сертификат', date: '2022-08-02', completed: false },
+            ]
+        },
+        {
+            _id: 3,
+            name: 'интеграции',
+            status: 'запланировано',
+            tasks: [
+                { _id: 1, processId: 3, name: 'Yandex webmaster', date: '2022-08-02', completed: false },
+                { _id: 2, processId: 3, name: 'Yandex metrika', date: '2022-08-02', completed: false },
+                { _id: 3, processId: 3, name: 'Google console search', date: '2022-08-02', completed: false },
+                { _id: 4, processId: 3, name: 'Google analytics', date: '2022-08-02', completed: false },
+            ]
+        },
+        {
+            _id: 4,
+            name: 'продвижение',
+            status: 'запланировано',
+            tasks: [
+                { _id: 1, processId: 4, name: 'Добавить страницу #1 в Yandex webmaster', date: '2022-08-02', completed: false },
+                { _id: 2, processId: 4, name: 'Добавить страницу #2 в Yandex webmaster', date: '2022-08-02', completed: false },
+            ]
+        },
     ]
 }
 
