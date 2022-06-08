@@ -1,14 +1,14 @@
 import React from 'react'
 import { useAppSelector } from '../../../../hooks/redux'
-import Item from './Item/Item';
+import ProcessItem from './ProcessItem/ProcessItem'
 
-const List: React.FC = () => {
+const ProcessList: React.FC = () => {
     const processes = useAppSelector(state => state.process.processes)
     return (
         <>
-            {processes.map(process => <Item key={process._id} process={process} />)}
+            {processes.map(process => <ProcessItem key={process._id} process={process} />)}
         </>
     )
 }
 
-export default List
+export default ProcessList

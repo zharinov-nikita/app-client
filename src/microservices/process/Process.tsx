@@ -1,10 +1,10 @@
 import React from 'react'
-import List from './components/List/List'
+import ProcessList from './components/ProcessList/ProcessLIst'
 
 const Process: React.FC = () => {
     return (
         <div>
-            <List />
+            <ProcessList />
         </div>
     )
 }
