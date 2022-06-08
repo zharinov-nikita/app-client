@@ -14,7 +14,7 @@ const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
     const dispatch = useAppDispatch()
     const { updateTaskProcess } = processSlice.actions
     return (
-        <Col span={24}>
+        <Col span={24}   >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Checkbox
                     checked={task.completed}
@@ -23,7 +23,7 @@ const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
                         {task.name}
                     </Typography.Link>
                 </Checkbox>
-                <Button children='Начать' size='small' type='primary' />
+                <Button children='Начать' size='small' style={{ borderRadius: 4, backgroundColor: '#f0f5ff', color: '#2f54eb' }} />
             </div>
         </Col>
     )
