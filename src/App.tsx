@@ -4,7 +4,7 @@ import Header from './components/Header/Header'
 import useMessage from './hooks/useMessage'
 
 import Link from './microservices/link/Link'
-import Project from './microservices/project/Project'
+import Process from './microservices/process/Process'
 
 const App: React.FC = () => {
   useMessage()
@@ -13,7 +13,7 @@ const App: React.FC = () => {
       <Header />
       <Routes>
         <Route path='/link' element={<Link />} />
-        <Route path='/project' element={<Project />} />
+        <Route path='/process' element={<Process />} />
       </Routes>
     </>
   )

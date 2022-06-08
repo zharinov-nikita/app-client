@@ -2,13 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 
 import appReducer from './app'
 import linkReducer from '../microservices/link/store/link'
-import projectReducer from '../microservices/project/store/project'
+import processReducer from '../microservices/process/store/process'
 
 
 const rootReducer = combineReducers({
     app: appReducer,
     link: linkReducer,
-    project: projectReducer
+    process: processReducer
 })
 
 export const setupStore = () => {
