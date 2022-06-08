@@ -20,10 +20,12 @@ export type ProcessType = {
 
 export type InitialStateType = {
     processes: ProcessType[]
+    mainKey: boolean
 }
 
 
 const initialState: InitialStateType = {
+    mainKey: false,
     processes: [
         {
             _id: 0,
@@ -79,6 +81,13 @@ export const processSlice = createSlice({
     initialState,
     name: 'process',
     reducers: {
+        // 
+        showMainKey(state: InitialStateType, action: { payload: boolean }) {
+            state.mainKey = action.payload
+        },
+        // 
+
+
         // создание процесса
         createProcess(state: InitialStateType, action: { payload: ProcessType }) {
             state.processes = [...state.processes, action.payload]
