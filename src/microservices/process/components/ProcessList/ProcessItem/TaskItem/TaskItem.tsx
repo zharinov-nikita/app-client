@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Checkbox, Col, Input, Row } from 'antd'
+import { Button, Checkbox, Col, Input, List, Row, Typography } from 'antd'
 import { useAppDispatch } from '../../../../../../hooks/redux'
 import { processSlice, TaskType } from '../../../../store/process'
 import type { DatePickerProps } from 'antd';
@@ -14,15 +14,18 @@ const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
     const dispatch = useAppDispatch()
     const { updateTaskProcess } = processSlice.actions
     return (
-        <Row>
-            <Col span={24}>
+        <Col span={24}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <Checkbox
                     checked={task.completed}
                     onChange={() => dispatch(updateTaskProcess({ ...task, completed: !task.completed }))} >
-                    {task.name}
+                    <Typography.Link strong>
+                        {task.name}
+                    </Typography.Link>
                 </Checkbox>
-            </Col>
-        </Row>
+                <Button children='Начать' size='small' type='primary' />
+            </div>
+        </Col>
     )
 }
 
