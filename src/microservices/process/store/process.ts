@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 
+export type MainKeyType = {
+    visible: boolean
+    value: string
+    number: number
+}
+
 export type TaskType = {
     _id: string | number
     processId: number
@@ -20,12 +26,16 @@ export type ProcessType = {
 
 export type InitialStateType = {
     processes: ProcessType[]
-    mainKey: boolean
+    mainKey: MainKeyType
 }
 
 
 const initialState: InitialStateType = {
-    mainKey: false,
+    mainKey: {
+        visible: false,
+        value: 'Главный ключ',
+        number: 0
+    },
     processes: [
         {
             _id: 0,
@@ -82,8 +92,11 @@ export const processSlice = createSlice({
     name: 'process',
     reducers: {
         // 
-        showMainKey(state: InitialStateType, action: { payload: boolean }) {
+        showMainKey(state: InitialStateType, action: { payload: MainKeyType }) {
             state.mainKey = action.payload
+        },
+        updateMainKey(state: InitialStateType, action: { payload: MainKeyType }) {
+            state.mainKey = { ...state.mainKey, ...action.payload }
         },
         // 
 

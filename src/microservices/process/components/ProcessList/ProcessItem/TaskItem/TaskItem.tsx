@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Checkbox, Col, Typography } from 'antd'
-import { useAppDispatch } from '../../../../../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
 import { processSlice, TaskType } from '../../../../store/process'
 
 
@@ -11,6 +11,7 @@ type PropsTaskItemType = {
 
 const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
     const dispatch = useAppDispatch()
+    const mainKey = useAppSelector(state => state.process.mainKey)
     const { updateTaskProcess, showMainKey } = processSlice.actions
 
     return (
@@ -29,7 +30,7 @@ const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
                     style={{ borderRadius: 4, backgroundColor: '#f0f5ff', color: '#2f54eb' }}
                     onClick={() => {
                         if (task.name === 'Главный ключ') {
-                            dispatch(showMainKey(true))
+                            dispatch(showMainKey({ ...mainKey, visible: true }))
                         }
                     }}
                 />
