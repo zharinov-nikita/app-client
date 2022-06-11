@@ -32,6 +32,7 @@ const MainKey: React.FC = () => {
                     placeholder='Частотность'
                     style={{ width: 120 }}
                     prefix={<NumberOutlined />}
+                    min={0}
                 />
             </Input.Group>
         </Modal>

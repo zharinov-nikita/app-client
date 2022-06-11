@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Checkbox, Col, Typography } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../../../../../hooks/redux'
 import { processSlice, TaskType } from '../../../../store/process'
@@ -11,8 +11,12 @@ type PropsTaskItemType = {
 
 const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
     const dispatch = useAppDispatch()
-    const mainKey = useAppSelector(state => state.process.mainKey)
-    const { updateTaskProcess, showMainKey } = processSlice.actions
+    const { mainKey, extraKey } = useAppSelector(state => state.process)
+    const {
+        updateTaskProcess,
+        showMainKey,
+        showExtraKey
+    } = processSlice.actions
 
     return (
         <Col span={24}   >
@@ -31,6 +35,9 @@ const TaskItem: React.FC<PropsTaskItemType> = ({ task }) => {
                     onClick={() => {
                         if (task.name === 'Главный ключ') {
                             dispatch(showMainKey({ ...mainKey, visible: true }))
+                        }
+                        if (task.name === 'Дополнительный ключ') {
+                            dispatch(showExtraKey({ ...extraKey, visible: true }))
                         }
                     }}
                 />

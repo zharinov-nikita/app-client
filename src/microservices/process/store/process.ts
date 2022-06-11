@@ -1,5 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+export type KeyType = {
+    id: number | string
+    value: string
+    number: number
+}
+
+export type ExtraKeyType = {
+    visible: boolean
+    keys: KeyType[]
+}
+
 
 export type MainKeyType = {
     visible: boolean
@@ -27,10 +38,18 @@ export type ProcessType = {
 export type InitialStateType = {
     processes: ProcessType[]
     mainKey: MainKeyType
+    extraKey: ExtraKeyType
 }
 
 
 const initialState: InitialStateType = {
+    extraKey: {
+        visible: false,
+        keys: [
+            { id: 1, value: 'Дополнительный ключ 1', number: 0 },
+            { id: 2, value: 'Дополнительный ключ 2', number: 0 }
+        ]
+    },
     mainKey: {
         visible: false,
         value: 'Главный ключ',
@@ -98,7 +117,28 @@ export const processSlice = createSlice({
         updateMainKey(state: InitialStateType, action: { payload: MainKeyType }) {
             state.mainKey = { ...state.mainKey, ...action.payload }
         },
+        //
+
+
         // 
+        showExtraKey(state: InitialStateType, action: { payload: ExtraKeyType }) {
+            state.extraKey = action.payload
+        },
+        updateExtraKey(state: InitialStateType, action: { payload: KeyType }) {
+            state.extraKey.keys = state.extraKey.keys.map(key => {
+                if (key.id === action.payload.id) {
+                    return { ...key, ...action.payload }
+                }
+                return key
+            })
+        },
+        createExtraKey(state: InitialStateType, action: { payload: KeyType }) {
+            state.extraKey.keys = [...state.extraKey.keys, action.payload]
+        },
+        deleteExtraKey(state: InitialStateType, action: { payload: KeyType }) {
+            state.extraKey.keys = state.extraKey.keys.filter(key => key.id !== action.payload.id)
+        },
+        //
 
 
         // создание процесса
