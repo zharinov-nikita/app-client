@@ -6,7 +6,6 @@ import Item from '../Item/Item'
 import { Layout, Row } from 'antd'
 import AppLayoutError from '../../../../../../core/components/LayotError/LayoutError'
 import AppLayoutLoad from '../../../../../../core/components/LayotLoad/LayoutLoad'
-import Affix from '../Affix/Affix'
 import Drawer from '../Drawer/Drawer'
 import None from '../None/None'
 
@@ -19,7 +18,6 @@ const List: React.FC = () => {
             <>
                 <AppLayoutLoad />
                 <Drawer />
-                <Affix />
             </>
         )
     }
@@ -29,7 +27,6 @@ const List: React.FC = () => {
             <>
                 <AppLayoutError component={<None />} />
                 <Drawer />
-                <Affix />
             </>
         )
     }
@@ -42,7 +39,6 @@ const List: React.FC = () => {
                 </Row >
             </Layout>
             <Drawer />
-            <Affix />
         </>
     )
 }
