@@ -6,7 +6,7 @@ export default function useInitialDataLoading(actions: any, request: any) {
     const { startLoad, finshLoad, showError } = appSlice.actions
     const dispatch = useAppDispatch()
 
-    async function handler() {
+    async function handlerRequest() {
         try {
             dispatch(startLoad())
             dispatch(actions(await request))
@@ -19,7 +19,7 @@ export default function useInitialDataLoading(actions: any, request: any) {
 
 
     useEffect(() => {
-        handler()
+        handlerRequest()
     }, [])
 
 }
