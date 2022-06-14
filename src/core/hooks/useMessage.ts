@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useAppSelector } from "./redux"
+import { useAppSelector } from "./useAppSelector"
 import { message } from 'antd'
 
 export default function useMessage() {

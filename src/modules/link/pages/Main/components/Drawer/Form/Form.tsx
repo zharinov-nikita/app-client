@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import useInput from './hooks/useInput'
 import useValid from './hooks/useValid'
-import { useAppDispatch, useAppSelector } from '../../../../../../../core/hooks/redux'
+
+import { useAppDispatch } from "../../../../../../../core/hooks/useAppDispatch"
+import { useAppSelector } from "../../../../../../../core/hooks/useAppSelector"
 
 import css from './Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
