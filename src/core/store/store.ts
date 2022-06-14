@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 
-import appReducer from './app'
+import appReducer from '.'
 import linkReducer from '../../modules/link/store'
 import { linkApi } from "../../modules/link/services"
 

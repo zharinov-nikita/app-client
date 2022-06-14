@@ -8,7 +8,7 @@ import { useAppSelector } from "../../../../../../../core/hooks/useAppSelector"
 import css from './Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
 import { useCreateLinkMutation, useUpdateLinkMutation } from '../../../../../services'
-import { appSlice } from '../../../../../../../core/store/app'
+import { appSlice } from '../../../../../../../core/store'
 import { linkSlice } from '../../../../../store'
 
 

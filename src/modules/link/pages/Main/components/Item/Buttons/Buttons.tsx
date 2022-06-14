@@ -5,7 +5,7 @@ import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '
 import { LinkType } from '../../../../../store/types/link.type'
 import { useAppDispatch } from '../../../../../../../core/hooks/useAppDispatch'
 import { linkSlice } from '../../../../../store'
-import { appSlice } from '../../../../../../../core/store/app'
+import { appSlice } from '../../../../../../../core/store'
 import { useDeleteLinkMutation } from '../../../../../services'
 
 interface IDocumentProps {
