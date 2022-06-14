@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppDispatch } from '../../../../../core/hooks/redux'
-import { linkSlice } from '../../../store'
+import { useAppDispatch } from '../../../../../../core/hooks/redux'
+import { linkSlice } from '../../../../store'
 import css from './Affix.module.css'
 import { AppstoreAddOutlined } from '@ant-design/icons'
 import { Button } from 'antd'

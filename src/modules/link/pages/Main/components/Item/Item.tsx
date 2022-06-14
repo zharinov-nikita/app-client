@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Col, Tabs, Typography, Tag } from 'antd'
 import Buttons from './Buttons/Buttons'
 
-import { LinkType } from "../../../store/types/link.type"
+import { LinkType } from "../../../../store/types/link.type"
 
 interface ILinkProps {
     link: LinkType

@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 
 import appReducer from './app'
-import linkReducer from '../../module/link/store'
-import { linkApi } from "../../module/link/services"
+import linkReducer from '../../modules/link/store'
+import { linkApi } from "../../modules/link/services"
 
 
 const rootReducer = combineReducers({

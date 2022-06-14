@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../../core/hooks/redux'
-import { linkSlice } from '../../../store'
+import { useAppDispatch, useAppSelector } from '../../../../../../core/hooks/redux'
+import { linkSlice } from '../../../../store'
 import { Drawer as AntdDrawer } from 'antd'
 import Form from './Form/Form'
 

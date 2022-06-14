@@ -1,14 +1,14 @@
 import React from 'react'
-import { useGetLinkQuery } from '../../services'
+import { useGetLinkQuery } from '../../../../services'
 import css from './List.module.css'
-import Item from './Item/Item'
+import Item from '../Item/Item'
 
 import { Layout, Row } from 'antd'
-import AppLayoutError from '../../../../core/components/LayotError/LayoutError'
-import AppLayoutLoad from '../../../../core/components/LayotLoad/LayoutLoad'
-import Affix from './Affix/Affix'
-import Drawer from './Drawer/Drawer'
-import None from './None/None'
+import AppLayoutError from '../../../../../../core/components/LayotError/LayoutError'
+import AppLayoutLoad from '../../../../../../core/components/LayotLoad/LayoutLoad'
+import Affix from '../Affix/Affix'
+import Drawer from '../Drawer/Drawer'
+import None from '../None/None'
 
 
 const List: React.FC = () => {

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
-import { LinkType } from '../../../../store/types/link.type'
-import { useAppDispatch } from '../../../../../../core/hooks/redux'
-import { linkSlice } from '../../../../store'
-import { appSlice } from '../../../../../../core/store/app'
-import { useDeleteLinkMutation } from '../../../../services'
+import { LinkType } from '../../../../../store/types/link.type'
+import { useAppDispatch } from '../../../../../../../core/hooks/redux'
+import { linkSlice } from '../../../../../store'
+import { appSlice } from '../../../../../../../core/store/app'
+import { useDeleteLinkMutation } from '../../../../../services'
 
 interface IDocumentProps {
     document: LinkType

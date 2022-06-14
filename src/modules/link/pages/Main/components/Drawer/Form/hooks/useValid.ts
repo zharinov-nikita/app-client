@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useAppSelector } from "../../../../../../../core/hooks/redux"
+import { useAppSelector } from "../../../../../../../../core/hooks/redux"
 
 export default function useValid() {
     const [disabled, setDisabled] = useState(true)
