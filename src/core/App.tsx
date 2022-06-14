@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <>
       <Row>
-        <Col style={{ width: 80 }} >
+        <Col style={{ width: 80, background: '#fafafa' }} >
           <Menu />
         </Col>
         <Col style={{ width: 'calc(100% - 80px)' }}>
