@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import App from './core/App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { setupStore } from './store/store'
+import { setupStore } from './core/store/store'
 import 'antd/dist/antd.css'
 
 const store = setupStore()
