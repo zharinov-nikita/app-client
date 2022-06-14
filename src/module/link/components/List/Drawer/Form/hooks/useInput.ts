@@ -7,7 +7,7 @@ export default function useInput() {
     const link = useAppSelector(state => state.link.form)
     const dispatch = useAppDispatch()
 
-    const onChange = (e: { target: HTMLInputElement }) => dispatch(setForm({ [e.target.name]: e.target.value }))
+    const onChange = (e: { target: HTMLInputElement }) => dispatch(setForm({ ...link, [e.target.name]: e.target.value }))
 
 
 

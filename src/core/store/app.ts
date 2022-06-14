@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IApp, IMessage, IMessageLevel } from "../interfaces/app"
+import { AppType } from "./types/app.type"
+import { MessageType } from "./types/message.type"
 
 
 
-const initialState: IApp = {
+const initialState: AppType = {
     isLoad: false,
     isError: false,
     message: {
@@ -20,20 +21,20 @@ export const appSlice = createSlice({
     initialState,
     reducers: {
         // LOAD
-        startLoad(state: IApp) { state.isLoad = true },
-        finshLoad(state: IApp) { state.isLoad = false },
+        startLoad(state: AppType) { state.isLoad = true },
+        finshLoad(state: AppType) { state.isLoad = false },
         // LOAD
 
         // ERROR
-        showError(state: IApp) { state.isError = true },
-        hideError(state: IApp) { state.isError = false },
+        showError(state: AppType) { state.isError = true },
+        hideError(state: AppType) { state.isError = false },
         // ERROR
 
-        // COSTUM MESSAGE
-        showMessage(state: IApp, action: { payload: IMessage }) {
+        // MESSAGE
+        showMessage(state: AppType, action: { payload: MessageType }) {
             state.message = { is: true, ...action.payload }
         },
-        hideMessage(state: IApp) {
+        hideMessage(state: AppType) {
             state.message = initialState.message
         },
         // MESSAGE

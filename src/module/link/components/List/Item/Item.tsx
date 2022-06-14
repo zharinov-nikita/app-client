@@ -4,11 +4,11 @@ import Buttons from './Buttons/Buttons'
 
 import { useAppDispatch } from '../../../../../core/hooks/redux'
 import useReq from '../../../hooks/useApiRequests'
-import { ILink } from '../../../interfaces/link'
+import { LinkType } from "../../../store/types/link.type"
 import { linkSlice } from '../../../store/link'
 
 interface ILinkProps {
-    link: ILink
+    link: LinkType
 }
 
 

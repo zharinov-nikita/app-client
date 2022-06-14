@@ -2,14 +2,14 @@ import React from 'react'
 
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
-import { ILink } from '../../../../interfaces/link'
+import { LinkType } from '../../../../store/types/link.type'
 import useApiRequests from '../../../../hooks/useApiRequests'
 import { useAppDispatch } from '../../../../../../core/hooks/redux'
 import { linkSlice } from '../../../../store/link'
 import { appSlice } from '../../../../../../core/store/app'
 
 interface IDocumentProps {
-    document: ILink
+    document: LinkType
 }
 
 

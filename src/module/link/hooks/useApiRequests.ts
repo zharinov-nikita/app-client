@@ -1,5 +1,5 @@
 import Api from '../api'
-import { ILink } from '../interfaces/link'
+import { LinkType } from "../store/types/link.type"
 import { appSlice } from "../../../core/store/app"
 import { linkSlice } from "../store/link"
 import { useAppDispatch } from "../../../core/hooks/redux"
@@ -10,26 +10,22 @@ export default function useApiRequests() {
     const dispatch = useAppDispatch()
 
     // CREATE
-    async function asyncCreateLink(link: ILink) {
+    async function asyncCreateLink(link: LinkType) {
         try {
-            const req = await Api.createLink(link)
-            dispatch(createLink(req))
+            dispatch(createLink(await Api.createLink(link)))
             dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно создана` }))
             dispatch(hideError())
         } catch (e) {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
-            console.log(e)
-
         }
     }
     // CREATE
 
 
     // UPDATE
-    async function asyncUpdateLink(link: ILink) {
+    async function asyncUpdateLink(link: LinkType) {
         try {
-            const req = await Api.updateLink(link)
-            dispatch(updateLink(req))
+            dispatch(updateLink(await Api.updateLink(link)))
             dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно обновлена` }))
         } catch (e) {
             dispatch(showMessage({ id: Date.now(), level: 'error', content: 'Ошибка на сервере' }))
@@ -39,7 +35,7 @@ export default function useApiRequests() {
 
 
     // DELETE
-    async function asyncDeleteLink(link: ILink) {
+    async function asyncDeleteLink(link: LinkType) {
         try {
             await Api.deleteLink(link)
             if (link?._id) {

@@ -1,17 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { IDrawer, IForm, ILink } from "../interfaces/link"
+import { FormType } from "./types/form.type"
+import { LinkType } from "./types/link.type"
+import { StateType } from "./types/state.type"
 
 
-export interface ILinkState {
-    links: ILink[]
-    drawer: IDrawer
-    form: IForm
-}
-
-
-
-
-const initialState: ILinkState = {
+const initialState: StateType = {
     links: [],
     drawer: {
         visible: false
@@ -35,18 +28,18 @@ export const linkSlice = createSlice({
     initialState,
     reducers: {
         // LINK
-        getLinks(state: ILinkState, action: { payload: ILink[] }) {
+        getLinks(state: StateType, action: { payload: LinkType[] }) {
             state.links = [...action.payload]
         },
-        deleteLink(state: ILinkState, action: { payload: string }) {
+        deleteLink(state: StateType, action: { payload: string }) {
             state.links = state.links.filter(link => link._id !== action.payload)
         },
-        createLink(state: ILinkState, action: { payload: ILink }) {
+        createLink(state: StateType, action: { payload: LinkType }) {
             state.links = [...state.links, action.payload]
             state.drawer.visible = false
             state.form = initialState.form
         },
-        updateLink(state: ILinkState, action: { payload: ILink }) {
+        updateLink(state: StateType, action: { payload: LinkType }) {
             state.links = state.links.map(link => {
                 if (link._id === action.payload._id) {
                     return action.payload
@@ -59,26 +52,26 @@ export const linkSlice = createSlice({
         // LINK
 
         // DRAWER
-        showDrawer(state: ILinkState) {
+        showDrawer(state: StateType) {
             state.drawer.visible = true
         },
-        hideDrawer(state: ILinkState) {
+        hideDrawer(state: StateType) {
             state.drawer.visible = false
         },
         // DRAWER
 
 
         // FORM
-        setForm(state: ILinkState, action: { payload: any }) {
+        setForm(state: StateType, action: { payload: FormType }) {
             state.form = { ...state.form, ...action.payload }
         },
-        createForm(state: ILinkState) {
+        createForm(state: StateType) {
             state.form = initialState.form
             state.drawer.visible = true
         }
         ,
-        updateForm(state: ILinkState, action: { payload: any }) {
-            state.form = { action: 'update', ...action.payload, isShort: action.payload.short }
+        updateForm(state: StateType, action: { payload: FormType }) {
+            state.form = { ...action.payload, action: 'update', isShort: action.payload.short }
             state.drawer.visible = true
         }
         // FORM
