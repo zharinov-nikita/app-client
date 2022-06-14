@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { FormType } from "./types/form.type"
-import { LinkType } from "./types/link.type"
 import { StateType } from "./types/state.type"
 
 

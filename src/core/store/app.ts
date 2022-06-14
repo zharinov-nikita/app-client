@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { AppType } from "./types/app.type"
+import { StateType } from "./types/state.type"
 import { MessageType } from "./types/message.type"
 
 
 
-const initialState: AppType = {
+const initialState: StateType = {
     message: {
         is: false,
         id: 0,
@@ -18,14 +18,12 @@ export const appSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
-        // MESSAGE
-        showMessage(state: AppType, action: { payload: MessageType }) {
+        showMessage(state: StateType, action: { payload: MessageType }) {
             state.message = { is: true, ...action.payload }
         },
-        hideMessage(state: AppType) {
+        hideMessage(state: StateType) {
             state.message = initialState.message
         },
-        // MESSAGE
     }
 })
 

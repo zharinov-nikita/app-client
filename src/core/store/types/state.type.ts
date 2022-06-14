@@ -1,5 +1,5 @@
 import { MessageType } from "./message.type"
 
-export type AppType = {
+export type StateType = {
     message: MessageType
 }
