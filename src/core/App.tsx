@@ -11,10 +11,10 @@ const App: React.FC = () => {
   return (
     <>
       <Row>
-        <Col span={1}>
+        <Col style={{ width: 80 }} >
           <Menu />
         </Col>
-        <Col span={23}>
+        <Col style={{ width: 'calc(100% - 80px)' }}>
           <Routes>
             <Route path='/link/*' element={<Link />} />
           </Routes>

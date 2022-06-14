@@ -1,3 +1,7 @@
+.list{
+    background-color: #fafafa;
+}
+
 .item:hover{
     background-color: #f5f5f5;
 }
