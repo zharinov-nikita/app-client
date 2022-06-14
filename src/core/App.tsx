@@ -2,9 +2,10 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import useMessage from './hooks/useMessage'
 
-import Link from '../modules/link/App'
 import { Col, Row } from 'antd'
 import Menu from './components/Menu/Menu'
+
+import Link from '../modules/link/App'
 
 const App: React.FC = () => {
   useMessage()
