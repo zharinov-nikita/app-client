@@ -1,19 +1,19 @@
 .row{
-    min-height: 52px;
-    display: flex;
-    align-items: center;
-    padding: 0px 16px;
+    min-height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0px 16px !important;
 }
 
 .col{
-    display: flex;
-    align-items: center;
-    justify-content: right;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: right !important;
 }
 
 .button{
-    background-color: #f5f5f5;
-    color: #595959;
-    font-size: 14px;
-    border-radius: 4px;
+    background-color: #f5f5f5 !important;
+    color: #595959 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
 }

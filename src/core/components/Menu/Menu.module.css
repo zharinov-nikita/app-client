@@ -1,31 +1,31 @@
 .list{
-    background-color: #fafafa;
+    background-color: #fafafa  !important;
 }
 
 .item{
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .item:hover{
-    background-color: #f5f5f5;
+    background-color: #f5f5f5 !important;
 }
 
 .box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 52px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    min-height: 52px !important;
 }
 
 .link{
-    color: inherit;
+    color: inherit !important;
 }
 
 .icon{
-    font-size: 18px;
+    font-size: 18px !important;
 }
 
 .name{
-    font-size: 10px;
+    font-size: 10px !important;
 }
