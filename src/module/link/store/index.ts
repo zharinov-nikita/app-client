@@ -27,30 +27,6 @@ export const linkSlice = createSlice({
     name: 'link',
     initialState,
     reducers: {
-        // LINK
-        getLinks(state: StateType, action: { payload: LinkType[] }) {
-            state.links = [...action.payload]
-        },
-        deleteLink(state: StateType, action: { payload: string }) {
-            state.links = state.links.filter(link => link._id !== action.payload)
-        },
-        createLink(state: StateType, action: { payload: LinkType }) {
-            state.links = [...state.links, action.payload]
-            state.drawer.visible = false
-            state.form = initialState.form
-        },
-        updateLink(state: StateType, action: { payload: LinkType }) {
-            state.links = state.links.map(link => {
-                if (link._id === action.payload._id) {
-                    return action.payload
-                }
-                return link
-            })
-            state.drawer.visible = false
-            state.form = initialState.form
-        },
-        // LINK
-
         // DRAWER
         showDrawer(state: StateType) {
             state.drawer.visible = true

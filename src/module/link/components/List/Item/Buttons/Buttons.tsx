@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Button } from 'antd'
 import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
 import { LinkType } from '../../../../store/types/link.type'
-import useApiRequests from '../../../../hooks/useApiRequests'
 import { useAppDispatch } from '../../../../../../core/hooks/redux'
-import { linkSlice } from '../../../../store/link'
+import { linkSlice } from '../../../../store'
 import { appSlice } from '../../../../../../core/store/app'
+import { useDeleteLinkMutation } from '../../../../services'
 
 interface IDocumentProps {
     document: LinkType
@@ -14,13 +14,24 @@ interface IDocumentProps {
 
 
 const Buttons: React.FC<IDocumentProps> = ({ document }) => {
+    const [deleteLink, { isSuccess: isSuccessDelete, isError: isErrorDelete }] = useDeleteLinkMutation()
     const { _id, offer, model, title, description, url, short } = document
     const link = { _id, offer, model, title, description, url, short }
     const copy = `http://localhost:3030/microservice/cc/${short}`
-    const { deleteLink } = useApiRequests()
     const { showMessage } = appSlice.actions
     const { updateForm } = linkSlice.actions
     const dispatch = useAppDispatch()
+
+
+    useEffect(() => {
+        if (isSuccessDelete) {
+            dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно удалена` }))
+        }
+        if (isErrorDelete) {
+            dispatch(showMessage({ id: Date.now(), level: 'error', content: `Что-то пошло не так` }))
+        }
+    }, [isSuccessDelete, isErrorDelete])
+
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

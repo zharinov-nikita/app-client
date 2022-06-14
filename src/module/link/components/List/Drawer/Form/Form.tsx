@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useInput from './hooks/useInput'
-import useApiRequests from '../../../../hooks/useApiRequests'
 import useValid from './hooks/useValid'
-import { useAppSelector } from '../../../../../../core/hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../../../../../core/hooks/redux'
 
 import css from './Form.module.css'
 import { Button, Input, Form as AntdForm } from 'antd'
+import { useCreateLinkMutation, useUpdateLinkMutation } from '../../../../services'
+import { appSlice } from '../../../../../../core/store/app'
+import { linkSlice } from '../../../../store'
 
 
 
 const Form: React.FC = () => {
+    const [createLink, { isSuccess: isSuccessCreate, isError: isErrorCreate }] = useCreateLinkMutation()
+    const [updateLink, { isSuccess: isSuccessUpdate, isError: isErrorUpdate }] = useUpdateLinkMutation()
+    const { showMessage } = appSlice.actions
+    const { hideDrawer } = linkSlice.actions
+
+    const dispatch = useAppDispatch()
     const { action } = useAppSelector(state => state.link.form)
-    const { createLink, updateLink } = useApiRequests()
 
     const { link } = useInput()
     const { onChange } = useInput()
@@ -30,6 +37,26 @@ const Form: React.FC = () => {
 
     const onClickBtn = () => (action === 'create') ? createLink(link) : updateLink(link)
     const childrenBtn = (action === 'create') ? 'создать' : 'обновить'
+
+    useEffect(() => {
+        if (isSuccessCreate) {
+            dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно создана` }))
+            dispatch(hideDrawer())
+        }
+        if (isErrorCreate) {
+            dispatch(showMessage({ id: Date.now(), level: 'error', content: `Что-то пошло не так` }))
+        }
+    }, [isSuccessCreate, isErrorCreate])
+
+    useEffect(() => {
+        if (isSuccessUpdate) {
+            dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно обновлена` }))
+            dispatch(hideDrawer())
+        }
+        if (isErrorUpdate) {
+            dispatch(showMessage({ id: Date.now(), level: 'error', content: `Что-то пошло не так` }))
+        }
+    }, [isSuccessUpdate, isErrorUpdate])
 
     return (
         <AntdForm layout='vertical'>

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../../../../../core/hooks/redux"
-import { linkSlice } from "../../../../../store/link"
+import { linkSlice } from "../../../../../store"
 
 export default function useInput() {
     const { offer, model, title, description, url, short } = useAppSelector(state => state.link.form)

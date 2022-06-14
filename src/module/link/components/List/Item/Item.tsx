@@ -2,10 +2,7 @@ import React from 'react'
 import { Card, Col, Tabs, Typography, Tag } from 'antd'
 import Buttons from './Buttons/Buttons'
 
-import { useAppDispatch } from '../../../../../core/hooks/redux'
-import useReq from '../../../hooks/useApiRequests'
 import { LinkType } from "../../../store/types/link.type"
-import { linkSlice } from '../../../store/link'
 
 interface ILinkProps {
     link: LinkType
