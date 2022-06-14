@@ -1,4 +1,4 @@
 .listLayout {
     padding: 16px !important;
-    min-height: calc(100vh - 58px) !important;
+    min-height: 100vh !important;
 }
