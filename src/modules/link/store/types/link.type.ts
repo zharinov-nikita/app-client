@@ -7,3 +7,12 @@ export type LinkType = {
     url: string
     short: string
 }
+
+export type LinkCreateType = {
+    offer: string
+    model: string
+    title: string
+    description: string
+    url: string
+    short: string
+}

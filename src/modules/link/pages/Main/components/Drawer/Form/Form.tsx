@@ -37,7 +37,7 @@ const Form: React.FC = () => {
         { name: 'url', value: url }
     ]
 
-    const onClickBtn = () => (action === 'create') ? createLink(link) : updateLink(link)
+    const onClickBtn = () => (action === 'create') ? createLink({ offer, model, title, description, url, short }) : updateLink(link)
     const childrenBtn = (action === 'create') ? 'создать' : 'обновить'
 
     useEffect(() => {

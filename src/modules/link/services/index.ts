@@ -1,16 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { LinkType } from '../store/types/link.type'
+import { LinkCreateType, LinkType } from '../store/types/link.type'
 
 export const linkApi = createApi({
     tagTypes: ['Link'],
     reducerPath: 'linkApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/microservice' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030' }),
     endpoints: (builder) => ({
         getLink: builder.query<LinkType[], void>({
             query: () => `/link`,
             providesTags: ['Link']
         }),
-        createLink: builder.mutation<LinkType, LinkType>({
+        createLink: builder.mutation<LinkCreateType, LinkCreateType>({
             query: (link) => ({
                 url: '/link',
                 method: 'POST',
@@ -20,7 +20,7 @@ export const linkApi = createApi({
         }),
         updateLink: builder.mutation<LinkType, LinkType>({
             query: (link) => ({
-                url: '/link',
+                url: `/link/${link._id}`,
                 method: 'PATCH',
                 body: link
             }),

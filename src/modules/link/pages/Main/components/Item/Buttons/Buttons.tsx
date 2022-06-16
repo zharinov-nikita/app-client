@@ -17,7 +17,7 @@ const Buttons: React.FC<IDocumentProps> = ({ document }) => {
     const [deleteLink, { isSuccess: isSuccessDelete, isError: isErrorDelete }] = useDeleteLinkMutation()
     const { _id, offer, model, title, description, url, short } = document
     const link = { _id, offer, model, title, description, url, short }
-    const copy = `http://localhost:3030/microservice/cc/${short}`
+    const copy = `http://localhost:3030/link/cc/${short}`
     const { showMessage } = appSlice.actions
     const { updateForm } = linkSlice.actions
     const dispatch = useAppDispatch()
