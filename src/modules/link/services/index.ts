@@ -4,7 +4,7 @@ import { LinkCreateType, LinkType } from '../store/types/link.type'
 export const linkApi = createApi({
     tagTypes: ['Link'],
     reducerPath: 'linkApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/api' }),
     endpoints: (builder) => ({
         getLink: builder.query<LinkType[], void>({
             query: () => `/link`,
