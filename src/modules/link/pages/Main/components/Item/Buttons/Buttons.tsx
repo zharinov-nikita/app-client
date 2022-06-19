@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 
 import { Button } from 'antd'
-import { DeleteOutlined, ProjectOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
+import { DeleteOutlined, BugOutlined, BarChartOutlined } from '@ant-design/icons'
 import { LinkType } from '../../../../../store/types/link.type'
 import { useAppDispatch } from '../../../../../../../core/hooks/useAppDispatch'
 import { linkSlice } from '../../../../../store'
 import { appSlice } from '../../../../../../../core/store'
 import { useDeleteLinkMutation } from '../../../../../services'
+import { MessageType } from '../../../../../../../core/store/types/message.type'
+import ButtonEdit from './ButtonEdit'
 
 interface IDocumentProps {
     document: LinkType
@@ -22,23 +24,31 @@ const Buttons: React.FC<IDocumentProps> = ({ document }) => {
     const { updateForm } = linkSlice.actions
     const dispatch = useAppDispatch()
 
+    const messageSuccessDelete: MessageType = {
+        id: Date.now(),
+        level: 'success',
+        content: `Ссылка ${link.title} успешно удалена`
+    }
+
+    const messageErrorDelete: MessageType = {
+        id: Date.now(),
+        level: 'error',
+        content: `Что-то пошло не так`
+    }
 
     useEffect(() => {
         if (isSuccessDelete) {
-            dispatch(showMessage({ id: Date.now(), level: 'success', content: `Ссылка ${link.title} успешно удалена` }))
+            dispatch(showMessage(messageSuccessDelete))
         }
         if (isErrorDelete) {
-            dispatch(showMessage({ id: Date.now(), level: 'error', content: `Что-то пошло не так` }))
+            dispatch(showMessage(messageErrorDelete))
         }
     }, [isSuccessDelete, isErrorDelete])
 
 
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <Button
-                size='small' icon={<ProjectOutlined />}
-                onClick={() => dispatch(updateForm(link))}
-            />
+            <ButtonEdit document={document} />
             <Button
                 size='small' icon={<BugOutlined />}
                 onClick={() => {
