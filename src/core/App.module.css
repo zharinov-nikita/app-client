@@ -1,0 +1,8 @@
+.menu{
+width: 80px;
+background-color: #fafafa;
+}
+
+.app{
+width: calc(100% - 80px);
+}
