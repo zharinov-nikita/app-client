@@ -1,12 +1,12 @@
-import React from 'react'
+import { FC } from 'react'
 import css from './LayoutError.module.css'
 import { Layout } from 'antd'
 
-interface IComponent {
+type PropsType = {
     component: React.ReactChild
 }
 
-const LayoutError: React.FC<IComponent> = ({ component }) => {
+const LayoutError: FC<PropsType> = ({ component }) => {
     return (
         <Layout className={css.loyout}>
             {component}
