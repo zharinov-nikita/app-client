@@ -3,7 +3,7 @@ import css from './LayoutError.module.css'
 import { Layout } from 'antd'
 
 type PropsType = {
-    component: React.ReactChild
+    component: React.ReactNode
 }
 
 const LayoutError: FC<PropsType> = ({ component }) => {
