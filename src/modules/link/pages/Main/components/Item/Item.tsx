@@ -4,7 +4,7 @@ import Buttons from './Buttons/Buttons'
 
 import { LinkType } from "../../../../store/types/link.type"
 
-interface ILinkProps {
+type PropsType = {
     link: LinkType
 }
 
@@ -13,7 +13,7 @@ const { TabPane } = Tabs
 const { Text } = Typography
 
 
-const Item: React.FC<ILinkProps> = ({ link }) => {
+const Item: React.FC<PropsType> = ({ link }) => {
     const { _id, offer, model, title, description, url, short } = link
     const message = 'Неопределено'
     return (
