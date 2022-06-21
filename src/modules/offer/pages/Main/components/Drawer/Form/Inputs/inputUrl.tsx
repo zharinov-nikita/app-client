@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Form, Input } from 'antd'
 import useInput from '../hooks/useInput'
 import css from '../Form.module.css'
+import { LinkOutlined } from '@ant-design/icons'
 
 const InputUrl: FC = () => {
     const { url, onInputChange } = useInput()
@@ -9,11 +10,12 @@ const InputUrl: FC = () => {
     return (
         <Form.Item
             className={css.item}
-            label={'url'}
+            label={'Ссылка'}
         >
             <Input
+                addonBefore={<LinkOutlined />}
                 type="text"
-                placeholder={'url'}
+                placeholder={'https://cloud.google.com'}
                 name={'url'}
                 value={url}
                 onChange={onInputChange}

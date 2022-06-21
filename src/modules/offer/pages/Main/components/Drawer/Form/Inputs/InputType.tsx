@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { Form, Input } from 'antd'
 import useInput from '../hooks/useInput'
 import css from '../Form.module.css'
+import { ExceptionOutlined } from '@ant-design/icons'
 
 const InputType: FC = () => {
     const { type, onInputChange } = useInput()
@@ -9,14 +10,15 @@ const InputType: FC = () => {
     return (
         <Form.Item
             className={css.item}
-            label={'type'}
+            label={'Тип'}
         >
             <Input
                 type="text"
-                placeholder={'type'}
+                placeholder={'Cloud'}
                 name={'type'}
                 value={type}
                 onChange={onInputChange}
+                addonBefore={<ExceptionOutlined />}
             />
         </Form.Item>
     )

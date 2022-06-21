@@ -3,6 +3,7 @@ import { Input, Form } from 'antd'
 import useInput from '../hooks/useInput'
 import useValid from '../hooks/useValid'
 import css from '../Form.module.css'
+import { ShareAltOutlined } from '@ant-design/icons'
 
 const InputShort: FC = () => {
     const { helpInputShort } = useValid()
@@ -12,10 +13,11 @@ const InputShort: FC = () => {
             className={css.item}
             label={'short'}
             help={helpInputShort}
-            key={'short'}
+            key={'Короткая ссылка'}
         >
             <Input type="text"
-                placeholder={'short'}
+                addonBefore={<ShareAltOutlined />}
+                placeholder={'google'}
                 status={(helpInputShort) ? 'error' : ''}
                 name={'short'}
                 value={short}

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Form, InputNumber, Select } from 'antd'
 import useInput from '../hooks/useInput'
 import css from '../Form.module.css'
-import { CaretDownOutlined } from '@ant-design/icons'
+import { CaretDownOutlined, DollarCircleOutlined } from '@ant-design/icons'
 
 const { Option } = Select
 
@@ -11,16 +11,17 @@ const InputPay: FC = () => {
     return (
         <Form.Item
             className={css.item}
-            label={'pay'}
+            label={'Оплата'}
         >
             <InputNumber
                 style={{ width: '100%' }}
                 min={0}
                 type="number"
-                placeholder={'pay'}
+                placeholder={'0'}
                 name={'pay'}
                 value={pay.value}
                 onChange={onChangePayValue}
+                addonBefore={<DollarCircleOutlined />}
                 addonAfter={
                     <Select
                         defaultValue="RUB"
