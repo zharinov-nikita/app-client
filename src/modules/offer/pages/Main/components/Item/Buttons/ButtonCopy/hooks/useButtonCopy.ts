@@ -23,7 +23,7 @@ export function useButtonCopy(document: OfferType) {
         try {
             navigator
                 .clipboard
-                .writeText(`http://localhost:3030/api/link/cc/${document.short}`)
+                .writeText(`http://localhost:3030/api/offer/cc/${document.short}`)
             dispatch(showMessage(successMessage))
         } catch (e) {
             dispatch(showMessage(errorMessage))
