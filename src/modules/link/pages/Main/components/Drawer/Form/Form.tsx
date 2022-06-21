@@ -6,7 +6,7 @@ import InputTitle from './Inputs/InputTitle'
 import InputDescription from './Inputs/inputDescription'
 import InputUrl from './Inputs/inputUrl'
 import RadioModel from './Radios/RadioModel'
-import Button from './Button/Button'
+import Button from './Buttons/Button'
 
 
 const Form: FC = () => {
