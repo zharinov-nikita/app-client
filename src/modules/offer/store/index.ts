@@ -14,7 +14,10 @@ const initialState: StateType = {
         name: '',
         model: '',
         type: '',
-        pay: '',
+        pay: {
+            value: 0,
+            currency: 'RUB'
+        },
         url: '',
         short: '',
         isShort: ''

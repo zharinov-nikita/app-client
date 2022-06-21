@@ -9,7 +9,7 @@ export default function useValid() {
     const { data: offers } = useGetOfferQuery()
     const checkCyrilic = /[а-яА-ЯЁё]/.test(short)
 
-    const checkEmpty = name.length > 0 && model.length > 0 && type.length > 0 && pay.length > 0 && url.length > 0 && short.length > 0
+    const checkEmpty = name.length > 0 && model.length > 0 && type.length > 0 && pay.value > 0 && url.length > 0 && short.length > 0
     let checkSame: any
 
     if (isShort) {

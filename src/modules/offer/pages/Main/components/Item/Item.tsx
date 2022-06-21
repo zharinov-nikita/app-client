@@ -34,7 +34,7 @@ const Item: React.FC<PropsType> = ({ offer }) => {
                         <Text children={(type) ? type : message} code />
                     </TabPane>
                     <TabPane tab="pay" key="pay">
-                        <Text children={(pay) ? pay : message} code />
+                        <Text children={(pay.value) ? `${pay.value} ${pay.currency}` : message} code />
                     </TabPane>
                     <TabPane tab="url" key="url">
                         <Text children={(url) ? url : message} code />
