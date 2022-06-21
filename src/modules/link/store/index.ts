@@ -41,7 +41,10 @@ export const linkSlice = createSlice({
             state.form = { ...state.form, ...action.payload }
         },
         createForm(state: StateType) {
-            state.form = initialState.form
+            if (state.form.action !== 'create') {
+                state.form = initialState.form
+                state.drawer.visible = true
+            }
             state.drawer.visible = true
         }
         ,
