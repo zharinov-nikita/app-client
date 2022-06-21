@@ -3,7 +3,7 @@ export type OfferType = {
     name: string
     model: string
     type: string
-    pay: string
+    pay: number
     url: string
     short: string
 }
@@ -12,7 +12,7 @@ export type OfferCreateType = {
     name: string
     model: string
     type: string
-    pay: string
+    pay: number
     url: string
     short: string
 }

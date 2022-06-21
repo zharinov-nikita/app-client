@@ -4,7 +4,7 @@ export type FormType = {
     name: string
     model: string
     type: string
-    pay: string
+    pay: number
     url: string
     short: string
     isShort?: string

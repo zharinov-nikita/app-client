@@ -13,7 +13,7 @@ const Header: FC = () => {
         <Row className={css.row}>
             <Col className={css.col} span={24}>
                 <Button
-                    className={css.button}
+                    type={'primary'}
                     children={'Создать'}
                     icon={<AppstoreAddOutlined />}
                     onClick={() => dispatch(createForm())}

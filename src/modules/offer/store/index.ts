@@ -14,7 +14,7 @@ const initialState: StateType = {
         name: '',
         model: '',
         type: '',
-        pay: '',
+        pay: 0,
         url: '',
         short: '',
         isShort: ''
