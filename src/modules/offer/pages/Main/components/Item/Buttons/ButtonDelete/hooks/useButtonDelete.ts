@@ -14,7 +14,7 @@ export function useButtonDelete(document: OfferType) {
     const messageSuccessDelete: MessageType = {
         id: Date.now(),
         level: 'success',
-        content: `Оффер ${short} успешно удалена`
+        content: `Оффер ${short} успешно удален`
     }
 
     const messageErrorDelete: MessageType = {

@@ -32,7 +32,7 @@ export function useHandlerMessage() {
     const messageIsSuccesUpdate: MessageType = {
         id: Date.now(),
         level: 'success',
-        content: `Оффер ${name} успешно создан`
+        content: `Оффер ${name} успешно обновлен`
     }
 
     const messageIsErrorUpdate: MessageType = {
