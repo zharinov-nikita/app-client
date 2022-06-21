@@ -7,7 +7,7 @@ import css from './Menu.module.css'
 
 const items: MenuItemPropsType[] = [
     { to: '/project', name: 'проекты', icon: <BarChartOutlined className={css.icon} /> },
-    { to: '/link', name: 'ссылки', icon: <LinkOutlined className={css.icon} /> },
+    { to: '/offer', name: 'офферы', icon: <LinkOutlined className={css.icon} /> },
     { to: '/analytics', name: 'статистика', icon: <BranchesOutlined className={css.icon} /> },
     { to: '/setting', name: 'настройки', icon: <SettingOutlined className={css.icon} /> },
 ]

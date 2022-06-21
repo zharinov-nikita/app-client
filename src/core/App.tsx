@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import useMessage from './hooks/useMessage'
 import { Col, Row } from 'antd'
 import Menu from './components/Menu/Menu'
-import Link from '../modules/link/App'
+import Offer from '../modules/offer/App'
 
 const App: FC = () => {
   useMessage()
@@ -15,7 +15,7 @@ const App: FC = () => {
       </Col>
       <Col className={css.app}>
         <Routes>
-          <Route path='/link/*' element={<Link />} />
+          <Route path='/offer/*' element={<Offer />} />
         </Routes>
       </Col>
     </Row>
