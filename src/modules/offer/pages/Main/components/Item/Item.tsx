@@ -24,16 +24,16 @@ const Item: React.FC<PropsType> = ({ offer }) => {
                     <TabPane tab="id" key="_id">
                         <Text children={(_id) ? _id : message} code />
                     </TabPane>
-                    <TabPane tab="name" key="name">
+                    <TabPane tab="название" key="name">
                         <Text children={(name) ? name : message} code />
                     </TabPane>
-                    <TabPane tab="model" key="model">
+                    <TabPane tab="модель" key="model">
                         <Text children={(model) ? model : message} code />
                     </TabPane>
-                    <TabPane tab="type" key="type">
+                    <TabPane tab="тип" key="type">
                         <Text children={(type) ? type : message} code />
                     </TabPane>
-                    <TabPane tab="pay" key="pay">
+                    <TabPane tab="оплата" key="pay">
                         <Text children={(pay.value) ? `${pay.value} ${pay.currency}` : message} code />
                     </TabPane>
                     <TabPane tab="url" key="url">
