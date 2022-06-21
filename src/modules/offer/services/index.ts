@@ -5,7 +5,7 @@ import { OfferCreateType, OfferType } from '../store/types/offer.type'
 
 export const offerApi = createApi({
     tagTypes: ['Offer'],
-    reducerPath: 'linkApi',
+    reducerPath: 'offerApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/api' }),
     endpoints: (builder) => ({
         getOffer: builder.query<OfferType[], void>({
