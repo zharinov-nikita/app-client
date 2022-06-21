@@ -9,7 +9,7 @@ export function useButtonDelete(document: OfferType) {
     const dispatch = useAppDispatch()
     const { short } = document
     const { showMessage } = appSlice.actions
-    const [deleteLink, { isSuccess: isSuccessDelete, isError: isErrorDelete }] = useDeleteOfferMutation()
+    const [deleteOffer, { isSuccess: isSuccessDelete, isError: isErrorDelete }] = useDeleteOfferMutation()
 
     const messageSuccessDelete: MessageType = {
         id: Date.now(),
@@ -34,5 +34,5 @@ export function useButtonDelete(document: OfferType) {
     }, [isSuccessDelete, isErrorDelete])
 
 
-    return deleteLink
+    return deleteOffer
 }

@@ -11,13 +11,13 @@ type PropsType = {
 }
 
 const ButtonDelete: FC<PropsType> = ({ document }) => {
-    const deleteLink = useButtonDelete(document)
+    const deleteOffer = useButtonDelete(document)
     return (
         <Button
             className={css.button}
             size='small'
             icon={<DeleteOutlined />}
-            onClick={() => deleteLink(document)}
+            onClick={() => deleteOffer(document)}
         />
     )
 }
