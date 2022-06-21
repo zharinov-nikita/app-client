@@ -11,9 +11,9 @@ const InputShort: FC = () => {
     return (
         <Form.Item
             className={css.item}
-            label={'short'}
+            label={'Короткая ссылка'}
             help={helpInputShort}
-            key={'Короткая ссылка'}
+            key={'short'}
         >
             <Input type="text"
                 addonBefore={<ShareAltOutlined />}
