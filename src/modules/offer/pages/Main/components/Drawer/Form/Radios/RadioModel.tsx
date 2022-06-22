@@ -7,7 +7,7 @@ const RadioModel: FC = () => {
     const options = [
         { label: 'cpa', value: 'cpa' },
         { label: 'revshary', value: 'revshary' },
-        { label: 'hybrid', value: 'hybrid' },
+        { label: 'hybrid', value: 'hybrid', disabled: true },
     ]
 
     const { onRadioChange } = useInput()

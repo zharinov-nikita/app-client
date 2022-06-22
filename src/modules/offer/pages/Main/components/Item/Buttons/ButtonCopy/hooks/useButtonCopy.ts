@@ -10,7 +10,7 @@ export function useButtonCopy(document: OfferType) {
     const successMessage: MessageType = {
         id: Date.now(),
         level: 'success',
-        content: `Оффер ${document.name} скопировано`
+        content: `Оффер ${document.name} скопирован`
     }
     const errorMessage: MessageType = {
         id: Date.now(),

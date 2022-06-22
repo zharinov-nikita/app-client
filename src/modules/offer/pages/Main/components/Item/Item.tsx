@@ -18,29 +18,29 @@ const Item: React.FC<PropsType> = ({ offer }) => {
     const message = 'Неопределено'
     return (
         <Col span={12} xs={24} sm={24} md={24} lg={12} xl={12} xxl={8}>
-            <Card title={<Tag color={'blue'} children={name} />}
+            <Card title={<Typography.Link children={name} />}
                 extra={<Buttons document={offer} />}>
                 <Tabs defaultActiveKey="1">
                     <TabPane tab="id" key="_id">
-                        <Text children={(_id) ? _id : message} code />
+                        <Text children={(_id) ? _id : message} />
                     </TabPane>
                     <TabPane tab="название" key="name">
-                        <Text children={(name) ? name : message} code />
+                        <Text children={(name) ? name : message} />
                     </TabPane>
                     <TabPane tab="модель" key="model">
-                        <Text children={(model) ? model : message} code />
+                        <Text children={(model) ? model : message} />
                     </TabPane>
                     <TabPane tab="тип" key="type">
-                        <Text children={(type) ? type : message} code />
+                        <Text children={(type) ? type : message} />
                     </TabPane>
                     <TabPane tab="оплата" key="pay">
-                        <Text children={(pay.value) ? `${pay.value} ${pay.currency}` : message} code />
+                        <Text children={(pay.value) ? `${pay.value} ${pay.currency}` : message} />
                     </TabPane>
                     <TabPane tab="url" key="url">
-                        <Text children={(url) ? url : message} code />
+                        <Text children={(url) ? url : message} />
                     </TabPane>
                     <TabPane tab="short" key="short">
-                        <Text children={(short) ? short : message} code />
+                        <Text children={(short) ? short : message} />
                     </TabPane>
                 </Tabs>
             </Card>

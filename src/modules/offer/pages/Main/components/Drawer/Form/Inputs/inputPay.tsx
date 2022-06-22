@@ -2,12 +2,57 @@ import { FC } from 'react'
 import { Form, InputNumber, Select } from 'antd'
 import useInput from '../hooks/useInput'
 import css from '../Form.module.css'
-import { CaretDownOutlined, DollarCircleOutlined } from '@ant-design/icons'
+import { CaretDownOutlined, DollarCircleOutlined, PercentageOutlined } from '@ant-design/icons'
+import { useAppSelector } from '../../../../../../../../core/hooks/useAppSelector'
 
 const { Option } = Select
 
+const SelectMain = () => {
+    const { model } = useAppSelector(state => state.offer.form)
+    return (
+        <>
+            {(model === 'cpa') && <SelectCpa />}
+            {(model === 'revshary') && <SelectRevshary />}
+        </>
+    )
+}
+
+const SelectCpa = () => {
+    const { pay, onChangePayCurrency } = useInput()
+    return (
+        <Select
+            defaultValue="RUB"
+            suffixIcon={<CaretDownOutlined />}
+            value={pay.currency}
+            onChange={onChangePayCurrency}
+        >
+            <Option value="RUB">RUB</Option>
+            <Option value="USD">USD</Option>
+            <Option value="EUR">EUR</Option>
+        </Select>
+    )
+}
+
+
+const SelectRevshary = () => {
+    const { pay, onChangePayCurrency } = useInput()
+    return (
+        <Select
+            defaultValue="%"
+            suffixIcon={<CaretDownOutlined />}
+            value={pay.currency}
+            onChange={onChangePayCurrency}
+        >
+            <Option value="%">
+                <PercentageOutlined />
+            </Option>
+        </Select >
+    )
+}
+
 const InputPay: FC = () => {
-    const { pay, onChangePayCurrency, onChangePayValue } = useInput()
+    const { model } = useAppSelector(state => state.offer.form)
+    const { pay, onChangePayValue } = useInput()
     return (
         <Form.Item
             className={css.item}
@@ -21,19 +66,8 @@ const InputPay: FC = () => {
                 name={'pay'}
                 value={pay.value}
                 onChange={onChangePayValue}
-                addonBefore={<DollarCircleOutlined />}
-                addonAfter={
-                    <Select
-                        defaultValue="RUB"
-                        suffixIcon={<CaretDownOutlined />}
-                        value={pay.currency}
-                        onChange={onChangePayCurrency}
-                    >
-                        <Option value="RUB">RUB</Option>
-                        <Option value="USD">USD</Option>
-                        <Option value="EUR">EUR</Option>
-                    </Select>
-                }
+                addonAfter={model}
+                addonBefore={model && <SelectMain />}
             />
         </Form.Item>
     )

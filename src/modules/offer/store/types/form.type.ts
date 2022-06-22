@@ -1,3 +1,5 @@
+import { OfferPayCurrencyType } from "./offer.type"
+
 export type FormType = {
     action?: 'create' | 'update' | 'save'
     _id: string
@@ -6,7 +8,7 @@ export type FormType = {
     type: string
     pay: {
         value: number
-        currency: 'RUB' | 'USD' | 'EUR'
+        currency: OfferPayCurrencyType
     }
     url: string
     short: string

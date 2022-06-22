@@ -1,4 +1,4 @@
-export type OfferPayCurrencyType = 'RUB' | 'USD' | 'EUR'
+export type OfferPayCurrencyType = 'RUB' | 'USD' | 'EUR' | '%'
 
 export type OfferType = {
     _id: string
